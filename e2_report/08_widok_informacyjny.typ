@@ -28,7 +28,7 @@
 )
 // (W tym wolumen danych, zakres backupu, częstotliwość, tryb, okres protekcji)
 
-==== Schemat 1
+==== Schemat 
 
 #table(
   columns: (auto, 1fr),
