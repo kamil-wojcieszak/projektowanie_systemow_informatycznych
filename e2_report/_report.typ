@@ -1,7 +1,5 @@
 #import "title_page.typ": title_page
 
-#set page(numbering: "1")
-#counter(page).update(1)
 
 #title_page(
   date: "18 Grudzień 2025r.",
@@ -13,6 +11,8 @@
     "Kasjan Kardaś 263505"   
   )
 )
+#set page(numbering: "1 z 1")
+#set heading(numbering: "1.1)")
 
 #include "01_cel.typ"
 #include "02_cele_i_ograniczenia.typ"
