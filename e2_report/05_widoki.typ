@@ -4,11 +4,11 @@
 
 === Diagram kontekstowy
 
-XXX zdjecie diagramu kontekstowego XXX
-// #figure(
-//   image("images/diagram_kontekstowy.png"),
-//   caption: [Diagram kontekstowy systemu]
-// )
+// XXX zdjecie diagramu kontekstowego XXX
+ #figure(
+   image("images/DiagramKontekstowy.png"),
+   caption: [Diagram kontekstowy systemu]
+ )
 
 === Scenariusze interakcji
 
