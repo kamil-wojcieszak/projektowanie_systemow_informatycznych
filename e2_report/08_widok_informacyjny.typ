@@ -16,7 +16,7 @@
   [Technologie], [Sequences, Constraints]
 )
 
-=== Backup
+Backup
 
 #table(
   columns: (1fr,),
@@ -28,14 +28,14 @@
 )
 // (W tym wolumen danych, zakres backupu, częstotliwość, tryb, okres protekcji)
 
-==== Schemat 
+Schemat 
 
 #table(
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Informacje o schemacie*],
   [Nazwa], [SALON_SCHEMA],
-  [Początkowa pojemność], [~25 MB + metadane],
-  [Przyrost pojemności (rok)], [~50 MB + metadane],
+  [Początkowa pojemność], [\u{007E}25 MB + metadane],
+  [Przyrost pojemności (rok)], [\u{007E}50 MB + metadane],
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 )
 
