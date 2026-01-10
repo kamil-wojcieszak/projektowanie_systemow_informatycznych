@@ -40,3 +40,8 @@
 )
 
 Pojemność początkowa bazy została oszacowana poprzez zsumowanie przewidywanych rozmiarów rekordów dla każdej tabeli (np. produkty, usługi) na podstawie liczby kolumn i typów danych, powiększonych o przestrzeń na metadane bazy. Przyrost danych roczny oszacowano na podstawie przewidywanej liczby nowych użytkowników, rezerwacji i transakcji oraz średniego rozmiaru rekordu w każdej tabeli.
+
+#figure(
+ image("images/Untitled.png"),
+ // caption: []
+)
