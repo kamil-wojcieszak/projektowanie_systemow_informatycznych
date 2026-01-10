@@ -1,0 +1,3 @@
+= Widok współbieżności
+
+Opcja

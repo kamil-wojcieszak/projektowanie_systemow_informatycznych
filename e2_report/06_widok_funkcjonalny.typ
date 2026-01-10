@@ -1,0 +1,3 @@
+= Widok funkcjonalny
+
+Diagram komponentów
