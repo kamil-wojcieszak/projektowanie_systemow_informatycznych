@@ -23,5 +23,5 @@
 #include "07_widok_rozmieszczenia.typ"
 #include "08_widok_informacyjny.typ"
 #include "09_widok_wytwarzania.typ"
-#include "10_widok_wspolbieznosci.typ"
+// #include "10_widok_wspolbieznosci.typ"
 #include "11_realizacja_przypadkow.typ"
