@@ -6,7 +6,7 @@ Wyróżniono zostały następujące cele, które system powinien spełniać:
 
 - Użytkownik ma możliwość przeglądania katalogu części samochodowych w sklepie internetowym salonu
 - Użytkownik ma możliwość zakupu produktów (części) w sklepie internetowym salonu
-- Użytkownik ma możliwość odwiedzania i serwisowania produktów z koszyka w sklepie internetowym salonu
+- Użytkownik ma możliwość dodawania i usuwania produktów z koszyka w sklepie internetowym salonu
 - Użytkownik ma możliwość przeglądania nowych pojazdów w sklepie internetowym salonu samochodowego
 - Użytkownik ma możliwość rezerwacji wizyty w salonie samochodowym (wraz z wyborem rodzaju wizyty [jazda próbna, konsultacja, zakup], wybór terminu wizyty spośród dostępnych)
 - Użytkownik ma możliwość przeglądania oferty salonu
