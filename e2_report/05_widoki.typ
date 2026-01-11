@@ -12,7 +12,7 @@
 
 === Scenariusze interakcji
 
-Do realizacji przeznaczona została obsługa płatności realizowana przez zewnętrzny serwis płatności. Interakcja ogranicza się do pojedynczego żądania HTTP wysyłanego przez system do serwisu płatności, w którym przekazywane są dane transakcji. Odpowiedź zawiera informację o statusie płatności, na podstawie której aktualizowana jest dane zamówienia w systemie.
+Do realizacji wybrano obsługę płatności realizowaną przez zewnętrzny serwis płatności. Interakcja ogranicza się do pojedynczego żądania HTTP wysyłanego przez system do serwisu płatności, w którym przekazywane są dane transakcji. Odpowiedź zawiera informację o statusie płatności, na podstawie której aktualizowana jest dane zamówienia w systemie.
 
 === Interfejsy integracyjne - poziom logiczny
 
