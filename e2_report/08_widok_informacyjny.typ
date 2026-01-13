@@ -97,9 +97,48 @@ Roczny przyrost danych wynika głównie ze wzrostu liczby rezerwacji wizyt w sal
 )
 
 
+#table(
+  columns: (auto, 1fr),
+  table.cell(colspan: 2)[*Ogólne informacje nt. bazy danych (osobna tabela dla każdej bazy)*],
+  [SID/Service Name], [ACCOUNT_DB],
+  [Nazwa serwera], [DeEs.myqnapcloud.com],
+  [Port], [1521],
+  [Type], [Oracle Database 19c],
+  [Kodowanie znaków], [AL32UTF8],
+  [Opis], [Relacyjna baza danych przechowująca konta użytkowników, role oraz statusy kont.],
+  [Technologie], [Sequences, Constraints]
+)
 
+Backup
 
+#table(
+  columns: (1fr,),
+  [Backup],
+  [Dane przechowywane w bazie kont obejmują informacje identyfikacyjne użytkowników, dane kontaktowe, role oraz statusy kont. Dane te są krytyczne dla bezpieczeństwa systemu oraz kontroli dostępu.
 
+  Pełne kopie zapasowe bazy danych wykonywane są raz w tygodniu, natomiast kopie przyrostowe wykonywane są codziennie w godzinach nocnych w celu minimalizacji wpływu na dostępność systemu.
+  Przechowywane są trzy ostatnie pełne kopie zapasowe, co umożliwia odtworzenie danych do wybranego punktu w czasie w przypadku awarii lub błędu logicznego.]
+)
+
+Schemat
+
+#table(
+  columns: (auto, 1fr),
+  table.cell(colspan: 2)[*Informacje o schemacie*],
+  [Nazwa], [ACCOUNT_SCHEMA],
+  [Początkowa pojemność], [≈5 MB + metadane],
+  [Przyrost pojemności (rok)], [≈10 MB + metadane],
+  [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
+)
+
+Początkowa pojemność bazy została oszacowana na podstawie liczby rekordów w tabelach users, roles oraz addresses. Dane użytkowników zawierają głównie krótkie pola tekstowe (imię, nazwisko, e-mail, telefon), dlatego pojedyncze rekordy są niewielkie. Dodatkowo uwzględniono przestrzeń na metadane bazy danych, takie jak definicje tabel, klucze główne, klucze obce oraz sekwencje.
+
+Roczny przyrost danych wynika głównie ze wzrostu liczby użytkowników systemu. Tabele słownikowe, takie jak role, pozostają praktycznie stałe, co powoduje przewidywalny i niewielki wzrost rozmiaru bazy.
+
+#figure(
+ image("images/account.png"),
+ // caption: []
+)
 
 //#table(
 //  columns: (auto, 1fr),
