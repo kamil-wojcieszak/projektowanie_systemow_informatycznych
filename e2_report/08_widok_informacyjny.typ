@@ -1,9 +1,24 @@
 = Widok informacyjny
 
 == Model informacyjny
+Modele informacyjne został wykonany dla całego systemu.
+#figure(
+ image("images/account_model_v2.jpg"),
+ // caption: []
+)
+
+#figure(
+ image("images/internet_shop_model.jpg"),
+ // caption: []
+)
+
+#figure(
+ image("images/car_showroom_service_model.jpg"),
+ // caption: []
+)
 
 == Projekt bazy danych
-
+Projekt bazy danych został wkonany nie dla całego systemu, lecz dla wymagań, które zostały wybrane do implementacji.
 #table(
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Ogólne informacje nt. bazy danych (osobna tabela dla każdej bazy)*],
