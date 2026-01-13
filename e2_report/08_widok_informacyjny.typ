@@ -131,7 +131,7 @@ Schemat
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 )
 
-Początkowa pojemność bazy została oszacowana na podstawie liczby rekordów w tabelach users, roles oraz addresses. Dane użytkowników zawierają głównie krótkie pola tekstowe (imię, nazwisko, e-mail, telefon), dlatego pojedyncze rekordy są niewielkie. Dodatkowo uwzględniono przestrzeń na metadane bazy danych, takie jak definicje tabel, klucze główne, klucze obce oraz sekwencje.
+Początkowa pojemność bazy została oszacowana na podstawie liczby rekordów w tabelach users oraz roles. Dane użytkowników zawierają głównie krótkie pola tekstowe (imię, nazwisko, e-mail, telefon), dlatego pojedyncze rekordy są niewielkie. Dodatkowo uwzględniono przestrzeń na metadane bazy danych, takie jak definicje tabel, klucze główne, klucze obce oraz sekwencje.
 
 Roczny przyrost danych wynika głównie ze wzrostu liczby użytkowników systemu. Tabele słownikowe, takie jak role, pozostają praktycznie stałe, co powoduje przewidywalny i niewielki wzrost rozmiaru bazy.
 
