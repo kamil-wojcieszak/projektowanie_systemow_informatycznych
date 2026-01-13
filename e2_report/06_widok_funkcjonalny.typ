@@ -4,7 +4,7 @@ Diagram komponentów
 
 // XXX zdjecie diagramu komponentów XXX
 #figure(
- image("images/E2_6_widok_funkcjonalny_v1.drawio.png"),
+ image("images/E2_6_widok_funkcjonalny_v2.drawio.png"),
  // caption: [Diagram komponentów]
 )
 
@@ -20,13 +20,11 @@ Niebieskie połączenia na powyższym diagramie symbolizują komunikację międz
     - możliwość wystawiania opinii produktom w sklepie internetowym salonu 
     - możliwość zakupu produktów (części) w sklepie internetowym salonu
 
-- Car showroom service (serwis salonu samochodowego)
+- Car showroom and service service (serwis salonu i serwisu samochodowego)
     - możliwość rezerwacji wizyty w salonie samochodowym (wraz z wyborem rodzaju wizyty [jazda próbna, konsultacja, zakup], wybór terminu wizyty spośród dostępnych)
     - możliwość przeglądania oferty salonu
-
-- Car service service (serwis serwisu samochodowego) 
     - możliwość rezerwacji wizyty w serwisie salonu (wraz z wyborem rodzaju wizyty [przegląd, naprawa, wymiana opon, wymiana oleju], opisaniem przyczyny wizyty, podaniem szczegółów technicznych samochodu)
     - możliwość przeglądania cennika usług w serwisie samochodowym
 
 - Account service (serwis kont użytkowników)
-    - możliwość rejestracji, logowania się i autentykacji w systemie
+    - możliwość rejestracji i logowania się do systemu
