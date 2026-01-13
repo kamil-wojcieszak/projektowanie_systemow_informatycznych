@@ -2,6 +2,21 @@
 
 == Model informacyjny
 
+#figure(
+ image("images/account_model_v1.JPG"),
+ // caption: []
+)
+
+#figure(
+ image("images/internet_shop_model.JPG"),
+ // caption: []
+)
+
+#figure(
+ image("images/car_showroom_service_model.JPG"),
+ // caption: []
+)
+
 == Projekt bazy danych
 
 #table(
