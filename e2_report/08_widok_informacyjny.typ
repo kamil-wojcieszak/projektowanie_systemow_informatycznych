@@ -3,12 +3,12 @@
 == Model informacyjny
 Modele informacyjne został wykonany dla całego systemu.
 #figure(
- image("images/account_model_v2.jpg"),
+ image("images/account_model_v2.png"),
  caption: [Model informacyjny - Konta użytkowników]
 )
 
 #figure(
- image("images/internet_shop_model.jpg"),
+ image("images/internet_shop_model.png"),
  caption: [Model informacyjny - Sklep internetowy]
 )
 
