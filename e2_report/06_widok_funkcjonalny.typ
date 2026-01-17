@@ -1,19 +1,13 @@
 = Widok funkcjonalny
 
-Diagram komponentów
-
-// XXX zdjecie diagramu komponentów XXX
 #figure(
  image("images/E2_6_widok_funkcjonalny_v2.drawio.png"),
- // caption: [Diagram komponentów]
+ caption: [Diagram komponentów]
 )
 
 Niebieskie połączenia na powyższym diagramie symbolizują komunikację między Account Service, a pozostałymi serwisami.
 
-\
-#text(weight: "bold")[
-    Rola serwisów:
-    ] \
+*Rola serwisów*:
 - Internet shop service (serwis sklepu internetowego)
     - możliwość przeglądania katalogu części samochodowych w sklepie internetowym salonu
     - możliwość dodawania i usuwania produktów z koszyka w sklepie internetowym salonu 

@@ -14,6 +14,16 @@
 #set page(numbering: "1 z 1")
 #set heading(numbering: "1.1)")
 
+#show figure.where(kind: image): set figure(supplement: [Rysunek])
+#show figure.where(kind: table): set figure(supplement: [Tabela])
+
+#outline(
+  title: "Spis treści",
+  indent: auto
+)
+
+#pagebreak()
+
 #include "01_cel.typ"
 #include "02_cele_i_ograniczenia.typ"
 #include "03_decyzje.typ"
