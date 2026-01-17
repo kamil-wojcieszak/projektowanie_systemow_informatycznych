@@ -120,9 +120,9 @@ table(
 caption: [Informacje o schemacie bazy salonu i serwisu]
 )
 
-Początkowa pojemność bazy została oszacowana na podstawie przewidywanej liczby rekordów w tabelach vehicles, services, salon_visits oraz service_visits, a także średniego rozmiaru rekordów zawierających opisy pojazdów, usług oraz wizyt. Dodatkowo uwzględniono przestrzeń na metadane bazy danych, takie jak definicje tabel, klucze główne i obce, ograniczenia integralności oraz sekwencje.
+Początkowa pojemność bazy została oszacowana na podstawie przewidywanej liczby rekordów w tabelach car, service, visit oraz employee, a także średniego rozmiaru rekordów zawierających opisy pojazdów, usług oraz wizyt. Dodatkowo uwzględniono przestrzeń na metadane bazy danych, takie jak definicje tabel, klucze główne i obce, ograniczenia integralności oraz sekwencje.
 
-Roczny przyrost danych wynika głównie ze wzrostu liczby rezerwacji wizyt w salonie i serwisie, które są zapisywane w tabelach salon_visits oraz service_visits. Tabele vehicles oraz services rosną wolniej, co powoduje umiarkowany i przewidywalny wzrost całkowitego rozmiaru bazy danych.
+Roczny przyrost danych wynika głównie ze wzrostu liczby rezerwacji wizyt w salonie i serwisie, które są zapisywane w tabelach visit. Tabele car oraz service rosną wolniej, co powoduje umiarkowany i przewidywalny wzrost całkowitego rozmiaru bazy danych.
 
 #figure(
  image("images/salonserwis.png"),
