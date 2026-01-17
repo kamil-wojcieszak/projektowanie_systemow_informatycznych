@@ -36,7 +36,7 @@ Backup
 #table(
   columns: (1fr,),
   [Backup],
-  [Dane przechowywane w systemie sklepu obejmują konta użytkowników, katalog produktów i kategorii, koszyki zakupowe, zamówienia oraz opinie o produktach. Dane te mają kluczowe znaczenie dla poprawnego funkcjonowania systemu, w szczególności w zakresie realizacji zakupów i rozliczeń.
+  [Dane przechowywane w systemie sklepu obejmują katalog produktów i kategorii, koszyki zakupowe, zamówienia oraz opinie o produktach. Dane te mają kluczowe znaczenie dla poprawnego funkcjonowania systemu, w szczególności w zakresie realizacji zakupów i rozliczeń.
 
   Pełne kopie zapasowe bazy danych wykonywane są raz w tygodniu, natomiast kopie przyrostowe wykonywane są codziennie w godzinach nocnych w celu ograniczenia wpływu na dostępność systemu.
   Przechowywane są trzy ostatnie pełne kopie zapasowe, co umożliwia odtworzenie danych po awarii sprzętowej lub w przypadku błędów logicznych (np. niezamierzonego usunięcia danych).]
@@ -55,11 +55,11 @@ Schemat
 )
 
 Pojemność początkowa bazy została oszacowana poprzez zsumowanie przewidywanych rozmiarów rekordów dla każdej tabeli
-(users, products, categories, carts, orders, reviews) na podstawie liczby kolumn oraz typów danych (number, varchar, date, text),
+(products, category, cart, order, comment) na podstawie liczby kolumn oraz typów danych (number, varchar, date),
 a następnie powiększona o przestrzeń na metadane bazy (definicje tabel, klucze główne i obce, constraints, sekwencje).
 
-Przyrost danych roczny oszacowano na podstawie przewidywanej liczby nowych użytkowników, zamówień oraz opinii,
-a także średniego rozmiaru pojedynczego rekordu w tabelach orders, order_items oraz product_reviews,
+Przyrost danych roczny oszacowano na podstawie przewidywanej liczby nowych zamówień oraz opinii,
+a także średniego rozmiaru pojedynczego rekordu w tabelach order, productOrder oraz comment,
 które generują największy wolumen danych w czasie.
 
 #figure(
