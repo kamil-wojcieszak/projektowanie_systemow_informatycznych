@@ -13,7 +13,7 @@ Modele informacyjne został wykonany dla całego systemu.
 )
 
 #figure(
- image("images/car_showroom_service_model.jpg"),
+ image("images/car_showroom_service_model.png"),
  caption: [Model informacyjny - Salon samochodowy i serwis]
 )
 
