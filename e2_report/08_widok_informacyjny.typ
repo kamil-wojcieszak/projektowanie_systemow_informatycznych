@@ -49,8 +49,8 @@ Schemat
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Informacje o schemacie*],
   [Nazwa], [SKLEP_SCHEMA],
-  [Początkowa pojemność], [\u{007E}10 MB + metadane],
-  [Przyrost pojemności (rok)], [\u{007E}30 MB + metadane],
+  [Początkowa pojemność], [≈10 MB + metadane],
+  [Przyrost pojemności (rok)], [≈30 MB + metadane],
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 )
 
