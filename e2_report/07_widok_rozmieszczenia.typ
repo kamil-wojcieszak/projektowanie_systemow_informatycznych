@@ -3,7 +3,7 @@
 == Diagram rozmieszczenia
 
 #figure(
-  image("images/architektua-aws.jpg", width: 100%),
+  image("images/architektura-aws.png", width: 100%),
   caption: [Diagram rozmieszczenia systemu]
 )
 
@@ -31,12 +31,23 @@ Warstwa API składa się z następujących komponentów:
 
 ==== Mikroserwisy (Lambda Functions)
 
-System wykorzystuje pięć funkcji Lambda, które realizują różne funkcjonalności biznesowe:
+System wykorzystuje funkcje Lambda, które realizują różne funkcjonalności biznesowe:
 
-- *Showroom Lambda* - zarządzanie ekspozycją pojazdów i prezentacją oferty
-- *Shop Lambda* - obsługa procesów związanych ze sprzedażą i transakcjami
-- *Service Lambda* - zarządzanie usługami serwisowymi i naprawami
-- *Auth Lambda* - obsługa uwierzytelniania i autoryzacji użytkowników
+- *Auth Lambda* - obsługa uwierzytelniania i autoryzacji użytkowników, połączona z bazą danych Account Database
+- *Showroom and Service Lambda* - zarządzanie ekspozycją pojazdów, prezentacją oferty oraz usługami serwisowymi i naprawami, współdzieląca bazę danych Showroom and Service Database
+- *Shop Lambda* - obsługa procesów związanych ze sprzedażą i transakcjami, z dostępem do Shop Database oraz integracja z zewnętrznym dostawcą płatności (tpay)
+
+=== Warstwa danych
+
+System wykorzystuje rozdzielone bazy danych dla poszczególnych obszarów funkcjonalnych:
+
+- *Account Database* - przechowuje dane użytkowników, informacje o kontach i uprawnieniach. Dedykowana dla funkcji Auth Lambda
+- *Showroom and Service Database* - wspólna baza danych dla funkcjonalności związanych z wystawą pojazdów oraz serwisem. Zawiera informacje o pojazdach w showroomie, historię serwisową, zlecenia napraw i szczegóły usług
+- *Shop Database* - przechowuje dane transakcyjne, zamówienia, koszyki zakupowe oraz historię zakupów klientów
+
+==== Integracje zewnętrzne
+
+- *Third Party Payment Provider (tpay)* - zewnętrzny system płatności zintegrowany z Shop Lambda, obsługujący transakcje finansowe, weryfikację płatności oraz zwroty
 
 === Komunikacja między komponentami
 
@@ -46,11 +57,17 @@ System charakteryzuje się następującym przepływem danych:
 2. Frontend CloudFront pobiera zasoby statyczne z Bucket S3 i dostarcza je do przeglądarki użytkownika
 3. UI (React) komunikuje się z API poprzez API CloudFront i API Gateway
 4. API Gateway kieruje żądania do odpowiednich funkcji Lambda w zależności od typu operacji
-5. Funkcje Lambda przetwarzają żądania i zwracają odpowiedzi przez API Gateway
+5. Funkcje Lambda przetwarzają żądania, komunikując się z dedykowanymi bazami danych:
+   - Auth Lambda z Account Database
+   - Showroom and Service Lambda z Showroom and Service Database
+   - Shop Lambda z Shop Database oraz zewnętrznym systemem płatności tpay
+6. Wyniki przetwarzania są zwracane przez API Gateway do warstwy frontendowej
 
-=== Zalety przyjętego rozwiązania
-
-- *Skalowalność* - architektura serverless (Lambda) pozwala na automatyczne skalowanie w zależności od obciążenia
+=== Zalety przyjętego rozwiązania, rozdzielone bazy danych ograniczają ryzyko nieautoryzowanego dostępu
+- *Optymalizacja kosztów* - model płatności za faktyczne użycie zasobów (pay-as-you-go)
+- *Separacja odpowiedzialności* - każdy mikroserwis realizuje dedykowaną funkcjonalność biznesową z własną bazą danych
+- *Izolacja danych* - niezależne bazy danych dla różnych obszarów funkcjonalnych zwiększają bezpieczeństwo i ułatwiają zarządzanie
+- *Elastyczność integracji* - możliwość łatwej wymiany dostawcy płatności dzięki luźnemu powiązaniu z systemem zewnętrznymci od obciążenia
 - *Wydajność* - użycie CloudFront w obu warstwach minimalizuje opóźnienia
 - *Bezpieczeństwo* - API Gateway zapewnia centralne zarządzanie autoryzacją i dostępem
 - *Optymalizacja kosztów* - model płatności za faktyczne użycie zasobów (pay-as-you-go)
