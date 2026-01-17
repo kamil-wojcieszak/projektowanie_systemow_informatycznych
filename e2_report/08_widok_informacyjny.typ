@@ -56,8 +56,8 @@ table(
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Informacje o schemacie*],
   [Nazwa], [SKLEP_SCHEMA],
-  [Początkowa pojemność], [\u{007E}25 MB + metadane],
-  [Przyrost pojemności (rok)], [\u{007E}50 MB + metadane],
+  [Początkowa pojemność], [≈10 MB + metadane],
+  [Przyrost pojemności (rok)], [≈30 MB + metadane],
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 ),
 caption: [Informacje o schemacie bazy sklepu]
@@ -113,8 +113,13 @@ table(
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Informacje o schemacie*],
   [Nazwa], [SALON_SERWIS_SCHEMA],
+<<<<<<< HEAD
   [Początkowa pojemność], [≈5 MB + metadane],
   [Przyrost pojemności (rok)], [≈60 MB + metadane],
+=======
+  [Początkowa pojemność], [≈10 MB + metadane],
+  [Przyrost pojemności (rok)], [≈30 MB + metadane],
+>>>>>>> 415425ec320f0ca2793207a91cac2269f760aa1a
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 ),
 caption: [Informacje o schemacie bazy salonu i serwisu]
@@ -166,7 +171,7 @@ table(
   columns: (auto, 1fr),
   table.cell(colspan: 2)[*Informacje o schemacie*],
   [Nazwa], [ACCOUNT_SCHEMA],
-  [Początkowa pojemność], [≈5 MB + metadane],
+  [Początkowa pojemność], [≈1 MB + metadane],
   [Przyrost pojemności (rok)], [≈10 MB + metadane],
   [Niezbędne prawa], [CREATE TABLE, CREATE SEQUENCE, INSERT, UPDATE, DELETE, SELECT]
 ),
