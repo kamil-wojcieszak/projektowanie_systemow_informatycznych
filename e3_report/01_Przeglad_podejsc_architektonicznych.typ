@@ -1,0 +1,1 @@
+= Przegląd podejść architektonicznych

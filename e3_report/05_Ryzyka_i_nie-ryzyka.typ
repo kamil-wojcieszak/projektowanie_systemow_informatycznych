@@ -1,0 +1,1 @@
+= Ryzyka i nie-ryzyka

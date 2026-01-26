@@ -1,0 +1,1 @@
+= Punkty wrażliwości i kompromisy
