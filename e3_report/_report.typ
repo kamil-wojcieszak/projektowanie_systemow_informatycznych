@@ -2,7 +2,7 @@
 
 
 #title_page(
-  date: "26 Styczeń 2026r.",
+  date: "27 Styczeń 2026r.",
   title: "Wyniki etapu III: Ocena architektury systemu: System e-learningowy",
   lecturer: "dr inż. Bogumiła Hnatkowska",
   authors: (
