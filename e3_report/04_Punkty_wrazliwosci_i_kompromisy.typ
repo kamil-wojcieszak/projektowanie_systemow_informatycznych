@@ -1,18 +1,17 @@
 = Punkty wrażliwości i kompromisy
 
-*S1:*
+*S1:* Autoskalowanie frontendowe jest wrażliwe na opóźnioną reakcję przy gwałtownym wzroście ruchu, co może skutkować chwilowym przeciążeniem serwerów i spadkiem wydajności dla użytkowników końcowych.
 
-Mechanizm autoskalowania backendu jest wrażliwy na nieprawidłowo dobrane progi obciążenia. Zbyt późne uruchamianie nowych instancji może prowadzić do chwilowego spadku wydajności systemu.
+*S2:* Load balancer wymaga prawidłowej konfiguracji rozdzielania ruchu; niewłaściwe ustawienia mogą prowadzić do nierównomiernego obciążenia instancji i częściowych przerw w dostępności usług.
 
-*S2:*
+*S3:* Load balancer jest wrażliwy na awarie lub nieprawidłowe health checki, co może skutkować kierowaniem ruchu do niedostępnych instancji lub chwilową utratą możliwości obsługi żądań użytkowników.
 
-Autoskalowanie warstwy frontendowej wpływa na zdolność obsługi dużej liczby jednoczesnych połączeń HTTP. Wrażliwość dotyczy synchronizacji skalowania frontendu z backendem.
+*S4:* Wieloinstancyjne wdrożenie backendu i frontendu wymaga spójnego zarządzania stanem aplikacji; brak synchronizacji lub błędy w konfiguracji mogą prowadzić do niespójności danych lub przerw w działaniu funkcji systemu.
 
-*T1:*
+*T1:* Zapewnia obsługę dużej liczby jednoczesnych połączeń kosztem większej złożoności infrastruktury, wymagając monitorowania zasobów i dynamicznej konfiguracji autoskalowania w odpowiedzi na zmieniające się obciążenie systemu.
 
-Autoskalowanie backendu umożliwia obsługę zwiększonego obciążenia kosztem większej złożoności infrastruktury i konieczności monitorowania.
+*T2:* Poprawia dostępność systemu, ale wprowadza dodatkową warstwę pośrednią w architekturze, która wymaga utrzymania i monitoringu, a także może wprowadzać niewielki narzut czasowy w przetwarzaniu żądań.
 
-*T2:*
+*T3:* Umożliwia ciągłość działania systemu przy awarii pojedynczej instancji kosztem monitoringu i utrzymania, ponieważ wszystkie instancje muszą być stale nadzorowane pod kątem zdrowia i wydajności.
 
-Skalowanie frontendu poprawia dostępność aplikacji, ale generuje dodatkowe koszty infrastrukturalne.
-
+*T4:* Poprawia dostępność i skalowalność systemu kosztem złożoności wdrożenia i synchronizacji instancji, wymagając dodatkowych mechanizmów koordynacji stanu aplikacji oraz procedur zapewniających spójność danych między instancjami.

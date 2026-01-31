@@ -1,9 +1,13 @@
 = Ryzyka i nie-ryzyka
 
-*R1:*
+*R1:* Opóźnione skalowanie frontendowych instancji może prowadzić do chwilowego spadku wydajności przy gwałtownym wzroście ruchu użytkowników, skutkując wydłużonym czasem odpowiedzi lub krótkotrwałym przeciążeniem serwerów.
 
-Nieprawidłowa konfiguracja mechanizmów autoskalowania może prowadzić do okresowych spadków wydajności przy gwałtownych wzrostach ruchu użytkowników.
+*R2:* Nieprawidłowa konfiguracja load balancera może powodować nierównomierne rozdzielenie ruchu między instancje, prowadząc do częściowych przerw w dostępności usług lub nieefektywnego wykorzystania zasobów systemu.
 
-*N1:*
+*R3:* Błędne wdrożenie wielu instancji backendu lub frontendu może skutkować utratą ciągłości działania, np. przez niespójność danych między instancjami lub czasową niedostępność wybranych funkcjonalności aplikacji.
 
-Zastosowanie autoskalowania backendu umożliwia spełnienie wymagań wydajnościowych przy dużej liczbie użytkowników.
+*N1:* Prawidłowo skonfigurowane autoskalowanie frontendu umożliwia obsługę co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności, zapewniając płynną pracę systemu nawet przy dużym obciążeniu.
+
+*N2:* Load balancer poprawnie rozdzielający ruch zapewnia wysoką dostępność systemu, umożliwiając działanie aplikacji nawet w przypadku awarii pojedynczej instancji, minimalizując przestoje dla użytkowników.
+
+*N3:* Wieloinstancyjne wdrożenie backendu i frontendu, w połączeniu z odpowiednią synchronizacją stanu, pozwala utrzymać dostępność systemu na poziomie ≥99% czasu, zapewniając ciągłość kluczowych usług platformy.
