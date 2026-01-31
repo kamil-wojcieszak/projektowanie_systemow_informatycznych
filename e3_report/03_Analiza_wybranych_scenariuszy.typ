@@ -1,59 +1,106 @@
 = Analiza wybranych scenariuszy
 
-W tej sekcji dokonano analizy czterech kluczowych scenariuszy jakościowych wybranych z drzewa użyteczności.
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    stroke: 1pt,
+    inset: 6pt,
+    
+    // Wiersz 1
+    [Scenariusz: A1], table.cell(colspan: 4)[Wsparcie dla co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności.],
+    
+    // Wiersz 2 (scalone 2-2 do 2-5)
+    [Atrybuty], table.cell(colspan: 4)[Wydajność, Skalowalność],
+    
+    // Wiersz 3
+    [Środowisko], table.cell(colspan: 4)[Normalny tryb pracy],
+    
+    // Wiersz 4
+    [Bodziec], table.cell(colspan: 4)[Jednoczesne korzystanie z systemu przez ≥1000 użytkowników],
+    
+    // Wiersz 5
+    [Odpowiedź], table.cell(colspan: 4)[Frontend i backend skalują się automatycznie, aby zapewnić obsługę równoczesnych połączeń bez spadku jakości usług.],
+    
+    // Wiersz 6
+    [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
+    
+    // Wiersz 7
+    [Autoskalowanie frontend], [S1], [T1], [R1], [],
+    
+    // Wiersz 8
+    [Load balancer], [S2], [T2], [], [N1],
+    
+    // Wiersz 9
+    [Analiza], table.cell(colspan: 4)[Autoskalowanie frontendu i load balancer eliminują przeciążenia przy dużym ruchu. Ryzyko R1 występuje przy opóźnionej synchronizacji skalowania.],
+  ),
+)
 
-== Scenariusz 1: Utrzymanie czasu odpowiedzi API na poziomie średnio 300ms (95 percentyl)
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    stroke: 1pt,
+    inset: 6pt,
+    
+    // Wiersz 1
+    [Scenariusz: A2], table.cell(colspan: 4)[Zapewnienie dostępu do aplikacji przez co najmniej 99% czasu],
 
-*Atrybut:* Wydajność i skalowalność
+    // Wiersz 2 (scalone 2-2 do 2-5)
+    [Atrybuty], table.cell(colspan: 4)[Dostępność],
 
-*Bodziec:* Użytkownik wykonuje operację w systemie generującą zapytanie HTTP do API.
+    // Wiersz 3
+    [Środowisko], table.cell(colspan: 4)[Normalny tryb pracy],
 
-*Odpowiedź:* System zwraca odpowiedź w czasie ≤300ms dla 95% zapytań.
+    // Wiersz 4
+    [Bodziec], table.cell(colspan: 4)[Awaria pojedynczej instancji backendu lub frontendu],
 
-*Realizacja:*
-- *AWS Lambda* - automatyczne skalowanie, niezależne serwisy (Auth, Shop, Showroom and Service)
-- *API Gateway* - routing, throttling, zarządzanie priorytetami żądań
-- *CloudFront CDN* - cachowanie, geograficzna dystrybucja, minimalizacja opóźnień
-- *Rozdzielone bazy danych* - brak blokad między obszarami funkcjonalnymi, optymalizacja per baza
+    // Wiersz 5
+    [Odpowiedź], table.cell(colspan: 4)[Ruch użytkowników zostaje automatycznie przekierowany do pozostałych instancji aplikacji, zapewniając ciągłość działania systemu.],
 
-== Scenariusz 2: Wsparcie dla co najmniej 1000 równoczesnych użytkowników bez spadku wydajności
+    // Wiersz 6
+    [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
 
-*Atrybut:* Wydajność i skalowalność
+    // Wiersz 7
+    [Load Balancer], [S3], [T3], [R2], [N2],
 
-*Bodziec:* 1000+ użytkowników jednocześnie wykonuje operacje (przeglądanie, zakupy, rezerwacje).
+    // Wiersz 8
+    [Wieloinstancyjne wdrożenie backendu i frontendu], [S4], [T4], [R3], [N3],
 
-*Odpowiedź:* System obsługuje wszystkich użytkowników utrzymując czas odpowiedzi \<300ms.
+    // Wiersz 9
+    [Analiza], table.cell(colspan: 4)[Wieloinstancyjne wdrożenie wraz z load balancerem eliminuje pojedynczy punkt awarii, zwiększając dostępność systemu. Ryzyka R2 i R3 dotyczą błędnej konfiguracji load balancera lub niewłaściwego wdrożenia instancji, natomiast N2 i N3 zapewniają dostępność na poziomie ≥99%.],
+  ),
+)
 
-*Realizacja:*
-- *Automatyczne skalowanie Lambda* - tworzenie nowych instancji, niezależne skalowanie mikroserwisów
-- *API Gateway* - throttling, limity per użytkownik, queue management
-- *CloudFront* - serwowanie statycznych zasobów z cache, redukcja żądań do Lambda
-- *Rozdzielone bazy* - dedykowany obszar per baza, niezależne skalowanie
-
-== Scenariusz 3: Zapewnienie szyfrowania wszystkich haseł użytkowników
-
-*Atrybut:* Bezpieczeństwo
-
-*Bodziec:* Rejestracja, zmiana hasła, logowanie, potencjalny wyciek bazy danych.
-
-*Odpowiedź:* Hasła zahaszowane (bcrypt/Argon2), brak możliwości odzyskania w postaci jawnej.
-
-*Realizacja:*
-- *Auth Lambda* - implementacja bcrypt/Argon2, haszowanie przed zapisem
-- *Mechanizm salt* - unikalny salt per hasło, ochrona przed rainbow table
-- *Work factor/memory cost* - regulowana złożoność, odporność na brute force
-- *Izolacja Account Database* - dedykowana baza, ograniczony dostęp tylko dla Auth Lambda
-
-== Scenariusz 4: Zapewnienie szyfrowania całej komunikacji między klientem a serwerem
-
-*Atrybut:* Bezpieczeństwo
-
-*Bodziec:* Przesyłanie danych wrażliwych (logowanie, płatności, dane osobowe), potencjalny atak MITM.
-
-*Odpowiedź:* Komunikacja przez HTTPS/TLS, szyfrowanie danych, autentyczność serwera, integralność danych.
-
-*Realizacja:*
-- *CloudFront HTTPS* - terminacja HTTPS, AWS Certificate Manager, wymuszenie HTTPS
-- *API Gateway HTTPS* - szyfrowanie end-to-end, konfiguracja minimalnej wersji TLS 1.2+
-- *Szyfrowane połączenia DB* - komunikacja Lambda-DB szyfrowana, AWS VPC, encryption at rest
-- *Integracja tpay* - HTTPS, weryfikacja certyfikatu SSL/TLS, mechanizmy autoryzacji
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    stroke: 1pt,
+    inset: 6pt,
+    
+    // Wiersz 1
+    [Scenariusz: B1], table.cell(colspan: 4)[],
+    
+    // Wiersz 2 (scalone 2-2 do 2-5)
+    [Atrybuty], table.cell(colspan: 4)[],
+    
+    // Wiersz 3
+    [Środowisko], table.cell(colspan: 4)[Normalny tryb pracy],
+    
+    // Wiersz 4
+    [Bodziec], table.cell(colspan: 4)[],
+    
+    // Wiersz 5
+    [Odpowiedź], table.cell(colspan: 4)[],
+    
+    // Wiersz 6
+    [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
+    
+    // Wiersz 7
+    [], [], [], [], [],
+    
+    // Wiersz 8
+    [], [], [], [], [],
+    
+    // Wiersz 9
+    [Analiza], table.cell(colspan: 4)[],
+  ),
+)
