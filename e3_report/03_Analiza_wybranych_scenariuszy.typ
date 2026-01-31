@@ -111,28 +111,28 @@ mogą być możliwe do przeczytania],
     inset: 6pt,
     
     // Wiersz 1
-    [Scenariusz: B1], table.cell(colspan: 4)[],
+    [Scenariusz: B2], table.cell(colspan: 4)[Brak możliwości przechwycenia przez użytkownika postronnego komunikacji między klientem a serwerem],
     
     // Wiersz 2 (scalone 2-2 do 2-5)
-    [Atrybuty], table.cell(colspan: 4)[],
+    [Atrybuty], table.cell(colspan: 4)[Bezpieczeństwo],
     
     // Wiersz 3
     [Środowisko], table.cell(colspan: 4)[Normalny tryb pracy],
     
     // Wiersz 4
-    [Bodziec], table.cell(colspan: 4)[],
+    [Bodziec], table.cell(colspan: 4)[Zagrożenie związane z próbą przechwycenia wiadomości przesyłanych w komunikacji między użytkownikiem, a serwerem],
     
     // Wiersz 5
-    [Odpowiedź], table.cell(colspan: 4)[],
+    [Odpowiedź], table.cell(colspan: 4)[Wymuszenie komunikacji HTTPS z wykorzystaniem protokołu TLS],
     
     // Wiersz 6
     [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
     
     // Wiersz 7
-    [], [], [], [], [],
+    [Komunikacja z wykorzystaniem protokołu HTTPS], [S6], [T6], [R5], [N5, N6],
     
     // Wiersz 8
-    [], [], [], [], [],
+    [Load balancer i bramy aplikacyjne akceptują wyłącznie połączenia szyfrowane], [], [], [], [],
     
     // Wiersz 9
     [Analiza], table.cell(colspan: 4)[],
