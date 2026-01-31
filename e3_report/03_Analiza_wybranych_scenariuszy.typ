@@ -77,6 +77,40 @@
     inset: 6pt,
     
     // Wiersz 1
+    [Scenariusz: B1], table.cell(colspan: 4)[Wartości haseł wszystkich użytkowników nie
+mogą być możliwe do przeczytania],
+    
+    // Wiersz 2 (scalone 2-2 do 2-5)
+    [Atrybuty], table.cell(colspan: 4)[Bezpieczeństwo],
+    
+    // Wiersz 3
+    [Środowisko], table.cell(colspan: 4)[Normalny tryb pracy],
+    
+    // Wiersz 4
+    [Bodziec], table.cell(colspan: 4)[Zagrożenie związane z próbą odczytania haseł zarejestrowanych użytkowników],
+    
+    // Wiersz 5
+    [Odpowiedź], table.cell(colspan: 4)[Przechowywanie haseł w postaci skrótów bcrypt z losową solą],
+    
+    // Wiersz 6
+    [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
+    
+    // Wiersz 7
+    [Skróty bcrypt z solą], [S5], [T5], [], [],
+    
+    // Wiersz 9
+    [Analiza], table.cell(colspan: 4)[],
+  ),
+)
+
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    stroke: 1pt,
+    inset: 6pt,
+    
+    // Wiersz 1
     [Scenariusz: B1], table.cell(colspan: 4)[],
     
     // Wiersz 2 (scalone 2-2 do 2-5)

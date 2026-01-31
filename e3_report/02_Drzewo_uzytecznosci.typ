@@ -24,12 +24,9 @@
     [Ochrona komunikacji],
     [Brak możliwości przechwycenia przez użytkownika postronnego komunikacji między klientem a serwerem (H, M)],
 
-    table.cell(rowspan: 2)[Dostępność],
+    [Dostępność],
     [Czas dostępności],
     [Zapewnienie dostępności do aplikacji przez co najmniej 99% czasu (H, H)],
-
-    [skalowalność],
-    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych (np. sesja egzaminacyjna) (H, H)],
 
     table.cell(rowspan: 2)[RODO],
     [Pozyskiwanie danych],
