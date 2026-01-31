@@ -10,6 +10,8 @@
 
 *R5:* Ryzyko błędnego zarządzania certyfikatami. W przypadku wygaśnięcia certyfikatu system stanie się niedostępny
 
+*R6:* Ryzyko błędnej konfiguracji load balancera i bram i tym samym oodrzucanie połączeń. Single Point of Failure
+
 *N1:* Prawidłowo skonfigurowane autoskalowanie frontendu umożliwia obsługę co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności, zapewniając płynną pracę systemu nawet przy dużym obciążeniu.
 
 *N2:* Load balancer poprawnie rozdzielający ruch zapewnia wysoką dostępność systemu, umożliwiając działanie aplikacji nawet w przypadku awarii pojedynczej instancji, minimalizując przestoje dla użytkowników.
@@ -21,3 +23,5 @@
 *N5:* Brak ryzyka podsłuchu komunikacji oraz ataków Man-in-the-Middle
 
 *N6:* Brak możliwości modyfikacji przesyłanych danych, co zapewnia ich integralność 
+
+*N7:* Brak ryzyka komunikacji nieszyfrowanej w którejś przestrzeni architektury

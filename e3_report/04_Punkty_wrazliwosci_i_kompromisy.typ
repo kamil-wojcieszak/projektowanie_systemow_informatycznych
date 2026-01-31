@@ -8,9 +8,11 @@
 
 *S4:* Wieloinstancyjne wdrożenie backendu i frontendu wymaga spójnego zarządzania stanem aplikacji; brak synchronizacji lub błędy w konfiguracji mogą prowadzić do niespójności danych lub przerw w działaniu funkcji systemu.
 
-*S5:* Zbyt niski koszt bcrypt zmniejsza odporność na ataki brute force natomiast zbyt wysoki prowadzi do problemów wydajnościowych przy logowaniu
+*S5:* Zbyt niski koszt bcrypt zmniejsza odporność na ataki brute force natomiast zbyt wysoki prowadzi do problemów wydajnościowych przy logowaniu.
 
-*S6:* Algorytmy szyfrujące mają wpływ na wydajnośc komunikacji. Duża liczba równoczesnych połączeń TLS może powodować opóźnienia
+*S6:* Algorytmy szyfrujące mają wpływ na wydajnośc komunikacji. Duża liczba równoczesnych połączeń TLS może powodować opóźnienia.
+
+*S7:* Akceptowanie wyłącznie połączeń szyfrowanych sprawia, że dostępność systemu jest wrażliwa na poprawność konfiguracji TLS na wszystkich elementach infrastruktury.
 
 *T1:* Zapewnia obsługę dużej liczby jednoczesnych połączeń kosztem większej złożoności infrastruktury, wymagając monitorowania zasobów i dynamicznej konfiguracji autoskalowania w odpowiedzi na zmieniające się obciążenie systemu.
 
@@ -22,4 +24,6 @@
 
 *T5:* Zastosowanie bcrypt znacząco zwiększa odporność systemu na ataki brute force oraz uniemożliwia odtworzenie haseł w przypadku naruszenia bazy danych. Mechanizm powoduje zwiększenie czasu operacji uwierzytelniania w porównaniu do szybszych algorytmów skrótu, co musi być uwzględnione przy dużej liczbie równoczesnych logowań.
 
-*T6:* Certyfikaty SSL muszą być odnawiane. Automatyczne odnawianie certyfikatów TLS zmniejsza ryzyko wygaśnięcia certyfikatu, jednak zwiększa złożoność infrastruktury. Ręczne zarządzanie nie jest tak złożone, jednak niesie ryzyko błędów operacyjnych
+*T6:* Certyfikaty SSL muszą być odnawiane. Automatyczne odnawianie certyfikatów TLS zmniejsza ryzyko wygaśnięcia certyfikatu, jednak zwiększa złożoność infrastruktury. Ręczne zarządzanie nie jest tak złożone, jednak niesie ryzyko błędów operacyjnych.
+
+*T7:* Akceptowanie wyłącznie połączeń szyfrowanych przez Load balancery i bramy aplikacyjne sprawia, że architektura jest prostsza (tylko jedna droga / protokół komunikacji), jednak pojedynczy błąd konfiguracji komunikacji blokuje całość ruchu

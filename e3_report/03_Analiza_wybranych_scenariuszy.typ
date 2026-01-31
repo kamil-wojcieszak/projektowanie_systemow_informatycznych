@@ -99,7 +99,7 @@ mogą być możliwe do przeczytania],
     [Skróty bcrypt z solą], [S5], [T5], [R4], [N4],
     
     // Wiersz 9
-    [Analiza], table.cell(colspan: 4)[Przechowywanie haseł w postaci skrótów bcrypt z losową solą eliminuje możliwość odtworzenia haseł użytkowników. Ryzyko R4 dotyczy nieodpowiedniego dobrania kosztu bcrypt. N4 zapewnia ochronę prawdziwych wartości haseł w przypadku wycieku bazy danych],
+    [Analiza], table.cell(colspan: 4)[Przechowywanie haseł w postaci skrótów bcrypt z losową solą eliminuje możliwość odtworzenia haseł użytkowników. Ryzyko R4 dotyczy nieodpowiedniego dobrania kosztu bcrypt. N4 zapewnia ochronę prawdziwych wartości haseł w przypadku wycieku bazy danych.],
   ),
 )
 
@@ -132,9 +132,9 @@ mogą być możliwe do przeczytania],
     [Komunikacja z wykorzystaniem protokołu HTTPS], [S6], [T6], [R5], [N5, N6],
     
     // Wiersz 8
-    [Load balancer i bramy aplikacyjne akceptują wyłącznie połączenia szyfrowane], [], [], [], [],
+    [Load balancer i bramy aplikacyjne akceptują wyłącznie połączenia szyfrowane], [S7], [T7], [R6], [N7],
     
     // Wiersz 9
-    [Analiza], table.cell(colspan: 4)[],
+    [Analiza], table.cell(colspan: 4)[Wykorzystanie HTTPS do całej komunikacji między przeglądarką użytkownika a frontendem i pomiędzy frontendem a backendem eliminuje możliwość podsłuchu komunikacji i ataków Man-in-the-Middle oraz zapewnia integralność perzesyłanych danych. Ryzyko R5 i R6 dotyczą błędów konfiguracji połączeń, których skutkiem jest utracenie dostępu do systemu. N5, N6 i N7 zapewniają poufność i integralność transmitowanych danych.],
   ),
 )
