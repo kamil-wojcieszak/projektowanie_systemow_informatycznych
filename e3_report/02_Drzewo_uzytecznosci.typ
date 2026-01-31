@@ -1,6 +1,6 @@
 = Drzewo użyteczności
 
-=== Interfejs 2: Klient System do zarządzania działalnością salonu samochodowego
+
 
 #figure(
   table(
@@ -12,28 +12,31 @@
     
     table.cell(rowspan: 2)[Wydajność i skalowalność],
     [Czas odpowiedzi na zapytanie],
-    [utrzymanie czasu odpowiedzi API na poziomie średnio 300ms (95 percentyl)],
+    [Utrzymanie czasu odpowiedzi API na poziomie średnio 300ms (95 percentyl)],
 
     [Liczba użytkowników],
-    [wsparcie dla co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności],
+    [Wsparcie dla co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności],
 
     table.cell(rowspan: 2)[Bezpieczeństwo],
-    [Przechowywanie danych],
-    [zapewnienie szyfrowania wszystkich haseł użytkowników],
+    [Ochrona danych],
+    [Wartości haseł wszystkich użytkowników nie mogą być możliwe do przeczytania],
 
-    [Komunikacja],
-    [zapewnienie szyfrowania całej komunikacji między klientem a serwerem],
+    [Ochrona komunikacji],
+    [Brak możliwości przechwycenia przez użytkownika postronnego komunikacji między klientem a serwerem],
 
-    [Dostępność],
+    table.cell(rowspan: 2)[Dostępność],
     [Czas dostępności],
-    [zapewnienie drugiej klasy dostępności (dostępność usługi przez co najmniej 99% czasu)],
+    [Zapewnienie dostępności do aplikacji przez co najmniej 99% czasu],
+
+    [skalowalność],
+    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych (np. sesja egzaminacyjna)],
 
     table.cell(rowspan: 2)[RODO],
     [Pozyskiwanie danych],
-    [mechanizm umożliwiający pobranie danych osobowych (JSON/CSV)],
+    [Mechanizm umożliwiający pobranie danych osobowych (JSON/CSV)],
 
     [Pozbywanie się danych],
-    [możliwość całkowitego usunięcia konta wraz z danymi w ciągu maksymalnie 30 dni],
+    [Możliwość całkowitego usunięcia konta wraz z danymi w ciągu maksymalnie 30 dni],
   ),
   caption: [Drzewo użyteczności - atrybuty jakości i scenariusze],
 )
