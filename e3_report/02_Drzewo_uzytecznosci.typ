@@ -28,8 +28,8 @@
     [Czas dostępności],
     [Zapewnienie dostępności do aplikacji przez co najmniej 99% czasu],
 
-    [skalowalność],
-    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych (np. sesja egzaminacyjna)],
+    [Skalowalność],
+    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych],
 
     table.cell(rowspan: 2)[RODO],
     [Pozyskiwanie danych],
