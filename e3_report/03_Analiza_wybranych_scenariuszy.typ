@@ -96,10 +96,10 @@ mogą być możliwe do przeczytania],
     [Decyzje architektoniczne], [Wrażliwość], [Kompromis], [Ryzyko], [Brak ryzyka],
     
     // Wiersz 7
-    [Skróty bcrypt z solą], [S5], [T5], [], [],
+    [Skróty bcrypt z solą], [S5], [T5], [R4], [N4],
     
     // Wiersz 9
-    [Analiza], table.cell(colspan: 4)[],
+    [Analiza], table.cell(colspan: 4)[Przechowywanie haseł w postaci skrótów bcrypt z losową solą eliminuje możliwość odtworzenia haseł użytkowników. Ryzyko R4 dotyczy nieodpowiedniego dobrania kosztu bcrypt. N4 zapewnia ochronę prawdziwych wartości haseł w przypadku wycieku bazy danych],
   ),
 )
 

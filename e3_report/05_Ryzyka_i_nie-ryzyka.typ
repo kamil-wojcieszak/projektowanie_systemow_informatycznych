@@ -6,8 +6,12 @@
 
 *R3:* Błędne wdrożenie wielu instancji backendu lub frontendu może skutkować utratą ciągłości działania, np. przez niespójność danych między instancjami lub czasową niedostępność wybranych funkcjonalności aplikacji.
 
+*R4:* Ryzyko spadku wydajności przy dużej liczbie równoczesnych logowań i zbyt wysokim koszcie bcrypt. To ryzyko może stać się również pomocne dla potencjalnego ataku DoS- atakujący mógłby generować masowe próby logowania i tym samym obciążyć instancję
+
 *N1:* Prawidłowo skonfigurowane autoskalowanie frontendu umożliwia obsługę co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności, zapewniając płynną pracę systemu nawet przy dużym obciążeniu.
 
 *N2:* Load balancer poprawnie rozdzielający ruch zapewnia wysoką dostępność systemu, umożliwiając działanie aplikacji nawet w przypadku awarii pojedynczej instancji, minimalizując przestoje dla użytkowników.
 
 *N3:* Wieloinstancyjne wdrożenie backendu i frontendu, w połączeniu z odpowiednią synchronizacją stanu, pozwala utrzymać dostępność systemu na poziomie ≥99% czasu, zapewniając ciągłość kluczowych usług platformy.
+
+*N4:* Zastosowanie skrótów bcrypt uniemożliwia odtworzenie haseł w przypadku wycieku bazy danych
