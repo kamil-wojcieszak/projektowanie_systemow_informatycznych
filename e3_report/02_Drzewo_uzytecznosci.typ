@@ -12,31 +12,31 @@
     
     table.cell(rowspan: 2)[Wydajność i skalowalność],
     [Czas odpowiedzi na zapytanie],
-    [Utrzymanie czasu odpowiedzi API na poziomie średnio 300ms (95 percentyl)],
+    [Utrzymanie czasu odpowiedzi API na poziomie średnio 300ms (95 percentyl) (L, M)],
 
     [Liczba użytkowników],
-    [Wsparcie dla co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności],
+    [Wsparcie dla co najmniej 1 000 równoczesnych użytkowników bez spadku wydajności (H, M)],
 
     table.cell(rowspan: 2)[Bezpieczeństwo],
     [Ochrona danych],
-    [Wartości haseł wszystkich użytkowników nie mogą być możliwe do przeczytania],
+    [Wartości haseł wszystkich użytkowników nie mogą być możliwe do przeczytania (H, M)],
 
     [Ochrona komunikacji],
-    [Brak możliwości przechwycenia przez użytkownika postronnego komunikacji między klientem a serwerem],
+    [Brak możliwości przechwycenia przez użytkownika postronnego komunikacji między klientem a serwerem (H, M)],
 
     table.cell(rowspan: 2)[Dostępność],
     [Czas dostępności],
-    [Zapewnienie dostępności do aplikacji przez co najmniej 99% czasu],
+    [Zapewnienie dostępności do aplikacji przez co najmniej 99% czasu (H, H)],
 
     [skalowalność],
-    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych (np. sesja egzaminacyjna)],
+    [System musi obsłużyć wzmożony ruch użytkowników w okresach szczytowych (np. sesja egzaminacyjna) (H, H)],
 
     table.cell(rowspan: 2)[RODO],
     [Pozyskiwanie danych],
-    [Mechanizm umożliwiający pobranie danych osobowych (JSON/CSV)],
+    [Mechanizm umożliwiający pobranie danych osobowych (JSON/CSV) (H, L)],
 
     [Pozbywanie się danych],
-    [Możliwość całkowitego usunięcia konta wraz z danymi w ciągu maksymalnie 30 dni],
+    [Możliwość całkowitego usunięcia konta wraz z danymi w ciągu maksymalnie 30 dni (M, L)],
   ),
-  caption: [Drzewo użyteczności - atrybuty jakości i scenariusze],
+  caption: [Drzewo użyteczności - atrybuty jakości i scenariusze; Struktura priorytetów: "(korzyść biznesowa wg klienta, trudność osiągnięcia celów scenariusza)"],
 )
