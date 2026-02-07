@@ -1,0 +1,16 @@
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+terraform.tfvars
+
+# Build artifacts
+dist/
+*.zip
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
