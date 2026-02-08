@@ -3,7 +3,8 @@ buildBackend:
 	(cd lambdas/products ; npm install ; npm run build)
 	(cd lambdas/users ; npm install ; npm run build)
 
-deployFrontend:
+deployFrontend: 
+	./deploy_frontend.sh
 
-deployInfra: buildBackend
+deployInfra: deployFrontend buildBackend
 	./deploy.sh
