@@ -10,6 +10,7 @@ import ShippingForm from "./pages/ShippingForm/ShippingForm";
 import PaymentMethod from "./pages/PaymentMethod/PaymentMethod";
 import { Navigate } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Salon from "./pages/Salon";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path="serwis" element={<Service />} />
         <Route path="koszyk" element={<ShoppingCart />} />
+        <Route path="salon" element={<Salon />} />
         <Route path="koszyk/dane-dostawy" element={<ShippingForm />} />
         <Route
           path="koszyk/podsumowanie"
