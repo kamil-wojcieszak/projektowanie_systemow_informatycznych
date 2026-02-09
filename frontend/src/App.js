@@ -10,6 +10,7 @@ import ShippingForm from "./pages/ShippingForm/ShippingForm";
 import PaymentMethod from "./pages/PaymentMethod/PaymentMethod";
 import { Navigate } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Salon from "./pages/Salon";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="start" element={<Navigate to="/sklep" replace />} />
         <Route path="sklep" element={<Shop />} />
+        <Route path="salon" element={<Salon />} />
         <Route
           path="sklep/szczegoly-produktu/:id"
           element={<ProductDetails />}
