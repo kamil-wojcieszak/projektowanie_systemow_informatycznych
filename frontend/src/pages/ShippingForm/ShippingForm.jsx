@@ -1,8 +1,15 @@
 import React from "react";
 // import { ChevronDown } from "lucide-react";
 import "./ShippingForm.css";
+import { useNavigate } from "react-router-dom";
 
-const ShippingForm = () => {
+const ShippingForm = ({ isSummary }) => {
+  const navigate = useNavigate();
+
+  const goToSummary = () => {
+    navigate(`/koszyk/podsumowanie`);
+  };
+
   return (
     <div className="shipping-container">
       <h2 className="shipping-title">Dane dostawy</h2>
@@ -45,11 +52,13 @@ const ShippingForm = () => {
         </div>
       </form>
 
-      <div className="shipping-action">
-        <button type="submit" className="summary-btn">
-          Przejdź do podsumowania
-        </button>
-      </div>
+      {isSummary != false && (
+        <div className="shipping-action">
+          <button type="submit" className="summary-btn" onClick={goToSummary}>
+            Przejdź do podsumowania
+          </button>
+        </div>
+      )}
     </div>
   );
 };

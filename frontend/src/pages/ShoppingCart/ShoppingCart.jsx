@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 // import { Trash2, ChevronUp, ChevronDown } from "lucide-react";
 import "./ShoppingCart.css";
 import ShippingForm from "../ShippingForm/ShippingForm";
+import { useNavigate } from "react-router-dom";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ isSummary }) => {
   const [quantity, setQuantity] = useState(1);
   const pricePerItem = 599.0;
 
   const [items, setItems] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     //TODO: get items from localstorage
@@ -18,6 +21,25 @@ const ShoppingCart = () => {
     }
   }, []);
 
+  const getAmount = () => {
+    return items.reduce((acc, item) => {
+      const itemTotal = item.product.price * item.stock;
+      return acc + itemTotal;
+    }, 0);
+  };
+
+  const goToPaymentMethod = () => {
+    navigate(`/koszyk/metoda-platnosci`, {
+      state: {
+        amountToPay: getAmount(),
+      },
+    });
+  };
+
+  const goToShippingForm = () => {
+    navigate(`/koszyk/dane-dostawy`);
+  };
+
   return (
     <div className="cart-page">
       <h2 className="cart-main-title">Przedmioty</h2>
@@ -26,7 +48,7 @@ const ShoppingCart = () => {
         {/* Karta produktu w koszyku */}
         {items &&
           items.map((item) => (
-            <div className="cart-card">
+            <div key={item.product.group_id} className="cart-card">
               <div className="cart-item-row">
                 <div className="cart-item-img">
                   <img src="https://via.placeholder.com/100" alt="Opona T3" />
@@ -65,18 +87,27 @@ const ShoppingCart = () => {
 
               <div className="cart-summary-row">
                 <span>
-                  Łącznie:{" "}
-                  {(item.product.price * item.product.stock).toFixed(2)} zł
+                  Łącznie: {(item.product.price * item.stock).toFixed(2)} zł
                 </span>
               </div>
             </div>
           ))}
 
         {/* Przycisk przejścia dalej */}
-        <div className="cart-action-area">
-          <ShippingForm />
-          <button className="checkout-btn">Przejdź do danych dostawy</button>
-        </div>
+        {isSummary ? (
+          <div className="cart-action-area">
+            <ShippingForm isSummary={false} />
+            <button className="checkout-btn" onClick={goToPaymentMethod}>
+              Przejdź do płatności
+            </button>
+          </div>
+        ) : (
+          <div className="cart-action-area">
+            <button className="checkout-btn" onClick={goToShippingForm}>
+              Przejdź do danych dostawy
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

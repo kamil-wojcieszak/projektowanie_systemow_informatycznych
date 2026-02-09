@@ -26,7 +26,10 @@ function App() {
         <Route path="serwis" element={<Service />} />
         <Route path="koszyk" element={<ShoppingCart />} />
         <Route path="koszyk/dane-dostawy" element={<ShippingForm />} />
-        <Route path="koszyk/podsumowanie" element={<ShoppingCart />} />
+        <Route
+          path="koszyk/podsumowanie"
+          element={<ShoppingCart isSummary={true} />}
+        />
         <Route path="koszyk/metoda-platnosci" element={<PaymentMethod />} />
       </Routes>
     </>
