@@ -7,11 +7,15 @@ import { useNavigate } from "react-router-dom";
 const PaymentMethod = () => {
   const amountToPay = "599.00 zł";
 
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState();
+
   const [isPaid, setIsPayed] = useState();
 
   const { state } = useLocation();
 
   const navigate = useNavigate();
+
+  const paymentMethods = ["transfer", "blik", "cash"];
 
   const pay = () => {
     setIsPayed(true);
