@@ -1,0 +1,120 @@
+.payment-container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 0 20px;
+}
+
+.payment-main-title {
+  color: #5d83ff;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Wyśrodkowany kontener formularza */
+.payment-box {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.payment-summary {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  color: #7494ff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.payment-amount {
+  color: #5d83ff;
+  font-weight: bold;
+}
+
+.payment-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.payment-field-group label {
+  color: #7494ff;
+  font-size: 1rem;
+}
+
+/* Styl pigułkowy dla select i input */
+.payment-select-wrapper,
+.blik-input {
+  width: 100%;
+}
+
+.payment-select-wrapper select,
+.blik-input {
+  background-color: #e0f7ff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  color: #5d83ff;
+  font-size: 1.1rem;
+  outline: none;
+  width: 100%;
+}
+
+/* Specyficzne dla Selecta */
+.payment-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.payment-select-wrapper select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.payment-select-icon {
+  position: absolute;
+  right: 15px;
+  color: #5d83ff;
+  pointer-events: none;
+}
+
+/* Specyficzne dla Inputa BLIK */
+.blik-input::placeholder {
+  color: #5d83ff;
+  letter-spacing: 4px;
+}
+
+.blik-input {
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+/* Przycisk Zapłać */
+.payment-action {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.pay-btn {
+  background: white;
+  border: 2px solid #a5f3fc;
+  color: #5d83ff;
+  padding: 12px 0;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pay-btn:hover {
+  background: #f0fdff;
+  transform: translateY(-1px);
+}

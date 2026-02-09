@@ -2,18 +2,9 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import "./ProductContainer.css";
 
-const ProductContainer = ({ onClick }) => {
-  const product = {
-    name: "Lampa żarowa",
-    price: "9.00 zł",
-    rating: 4.0,
-    reviews: 34,
-    title: "Strong lamp",
-    status: "nowy",
-  };
-
+const ProductContainer = ({ product, onClick }) => {
   return (
-    <div className="widget-container" onClick={onClick}>
+    <div className="widget-container" onClick={() => onClick(product.group_id)}>
       {/* Kontener na grafikę z krzyżykiem */}
       <div className="widget-image-box">
         <div className="cross-line line-1"></div>
@@ -27,7 +18,7 @@ const ProductContainer = ({ onClick }) => {
         <div className="widget-rating">
           <FaStar />
           <div className="rating-details">
-            <span>{product.rating} / 5.0</span>
+            <span>{product.rate} / 5.0</span>
             <span>({product.reviews})</span>
           </div>
         </div>
@@ -35,10 +26,13 @@ const ProductContainer = ({ onClick }) => {
 
       <div className="widget-details">
         <p>
-          Marka: <span>{product.title}</span>
+          Marka: <span>{product.mark}</span>
         </p>
         <p>
-          Stan: <span>{product.status}</span>
+          Opis: <span>{product.description}</span>
+        </p>
+        <p>
+          Stan: <span>{product.product_condition}</span>
         </p>
       </div>
 

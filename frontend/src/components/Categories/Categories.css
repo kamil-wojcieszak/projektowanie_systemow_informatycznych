@@ -20,3 +20,10 @@
   color: #3b6cff;
   cursor: pointer;
 }
+
+.categories-selected {
+  margin-bottom: 10px;
+  color: #3b6cff;
+  cursor: pointer;
+  font-weight: 800;
+}

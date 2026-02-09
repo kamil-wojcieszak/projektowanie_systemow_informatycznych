@@ -10,7 +10,7 @@ export default function Header() {
       </div>
 
       <nav className="header-nav">
-        <NavLink to="/sklep" end>
+        <NavLink to="/start" end>
           🏠 Start
         </NavLink>
         <NavLink to="/salon">🚗 Salon</NavLink>
