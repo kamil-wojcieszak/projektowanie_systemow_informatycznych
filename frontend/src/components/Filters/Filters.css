@@ -1,0 +1,28 @@
+.filters {
+  margin-bottom: 24px;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eef2ff;
+  color: #3b6cff;
+}
+
+.remove {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-filter {
+  margin-left: 12px;
+  border-radius: 50%;
+  border: 2px solid #3b6cff;
+  background: white;
+  color: #3b6cff;
+  width: 28px;
+  height: 28px;
+}

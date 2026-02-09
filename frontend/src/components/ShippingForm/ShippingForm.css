@@ -1,0 +1,105 @@
+.shipping-container {
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 0 20px;
+}
+
+.shipping-title {
+  color: #5d83ff;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.shipping-divider {
+  height: 1px;
+  background-color: #5d83ff;
+  opacity: 0.3;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* Układ siatki 3x2 */
+.shipping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 30px;
+  margin-bottom: 50px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  color: #7494ff;
+  font-size: 0.95rem;
+}
+
+/* Styl "pigułkowych" inputów */
+.input-group input,
+.select-wrapper select {
+  background-color: #e0f7ff; /* Jasnobłękitne tło */
+  border: none;
+  border-radius: 20px;
+  padding: 12px 20px;
+  color: #5d83ff;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #5d83ff;
+  opacity: 0.7;
+}
+
+/* Stylizacja Selecta */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-wrapper select {
+  appearance: none; /* Ukrycie domyślnej strzałki */
+  cursor: pointer;
+}
+
+.select-icon {
+  position: absolute;
+  right: 15px;
+  color: #5d83ff;
+  pointer-events: none;
+}
+
+/* Przycisk na dole */
+.shipping-action {
+  display: flex;
+  justify-content: center;
+}
+
+.summary-btn {
+  background: white;
+  border: 2px solid #a5f3fc;
+  color: #5d83ff;
+  padding: 14px 50px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.summary-btn:hover {
+  background: #f0fdff;
+  box-shadow: 0 4px 12px rgba(165, 243, 252, 0.3);
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 768px) {
+  .shipping-grid {
+    grid-template-columns: 1fr;
+  }
+}

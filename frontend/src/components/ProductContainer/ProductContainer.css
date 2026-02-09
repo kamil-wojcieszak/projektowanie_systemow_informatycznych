@@ -1,0 +1,96 @@
+.widget-container {
+  width: 200px;
+  padding: 16px;
+  font-family: sans-serif;
+  background: #fff;
+}
+
+/* Stylizacja ramki z krzyżykiem */
+.widget-image-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid #333;
+  border-radius: 35px; /* Mocne zaokrąglenie */
+  position: relative;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cross-line {
+  position: absolute;
+  width: 140%;
+  height: 1.5px;
+  background-color: #333;
+}
+
+.line-1 {
+  transform: rotate(45deg);
+}
+.line-2 {
+  transform: rotate(-45deg);
+}
+
+/* Teksty i kolory */
+.widget-title {
+  color: #5d83ff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.widget-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.widget-price {
+  color: #7494ff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.widget-rating {
+  display: flex;
+  color: #6a8dff;
+  font-size: 0.85rem;
+  line-height: 1.1;
+}
+
+.star-icon {
+  font-size: 1.4rem;
+  margin-right: 4px;
+}
+
+.rating-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-details {
+  color: #40e0d0; /* Kolor turkusowy/cyjan */
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.widget-details p {
+  margin: 2px 0;
+}
+
+.widget-link {
+  background: none;
+  border: none;
+  color: #9db4ff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.widget-link:hover {
+  text-decoration: underline;
+}

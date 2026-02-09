@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border: 2px solid #222;
+  border-radius: 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #3b6cff;
+}
+
+.search {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #3b6cff;
+  padding-bottom: 4px;
+}
+
+.header-nav a.active {
+  border-bottom: 2px solid #3b6cff;
+  font-weight: bold;
+}
+
+.header-user {
+  color: #3b6cff;
+}
