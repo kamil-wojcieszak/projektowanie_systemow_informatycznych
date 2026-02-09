@@ -1,0 +1,80 @@
+.car-card {
+  width: 200px;
+  padding: 16px;
+  font-family: sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s;
+}
+
+.car-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Placeholder grafiki z krzyżykiem */
+.car-image-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid #333;
+  border-radius: 35px;
+  position: relative;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cross-line {
+  position: absolute;
+  width: 140%;
+  height: 1.5px;
+  background-color: #333;
+}
+
+.line-1 {
+  transform: rotate(45deg);
+}
+
+.line-2 {
+  transform: rotate(-45deg);
+}
+
+/* Teksty i kolory */
+.car-title {
+  color: #5d83ff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.car-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #40e0d0;
+}
+
+.car-brand, .car-price, .car-year {
+  display: block;
+}
+
+/* Przycisk */
+.car-link {
+  background: none;
+  border: none;
+  color: #9db4ff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.car-link:hover {
+  text-decoration: underline;
+}
