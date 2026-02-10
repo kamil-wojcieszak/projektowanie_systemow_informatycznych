@@ -1,34 +1,43 @@
+/* Formularz główny */
 .visit-form {
   background: #f8faff;
   padding: 24px;
   border-radius: 16px;
-  width: 100%;      /* wypełnia cały kontener */
-  max-width: 100%;  /* usuwa ograniczenia */
-  box-sizing: border-box; /* uwzględnia padding w szerokości */
+  width: 100%;
+  max-width: 720px; /* desktop */
+  margin: 0 auto;   /* centrowanie formularza */
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 28px;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
+/* Tytuł formularza */
 .visit-form h2 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #5d83ff;
-  margin: 0 0 12px 0;
+  margin: 0;
 }
 
+/* GRID auto-fit — mobile-first, responsywny */
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr auto; /* dwa pola + przycisk */
-  gap: 16px;
-  align-items: end;
-  width: 100%;   /* rozciąga się na całą szerokość formularza */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.form-row > * {
+  min-width: 0; /* 🔥 kluczowe dla responsywności */
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  min-width: 0; /* 🔥 kluczowe */
 }
 
 .form-group label {
@@ -36,54 +45,97 @@
   color: #5d83ff;
 }
 
+/* Inputy i selecty */
 .form-group input,
 .form-group select {
-  width: 100%; /* wypełnia całą kolumnę */
+  width: 100%;
+  min-width: 0; /* 🔥 bardzo ważne */
   box-sizing: border-box;
-  padding: 8px 12px;
+  padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid #c3d0ff;
   background: #eaf0ff;
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
-  transition: all 0.2s ease;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   border-color: #5d83ff;
-  box-shadow: 0 0 4px #5d83ff33;
+  box-shadow: 0 0 6px #5d83ff33;
 }
 
+/* Przycisk formularza */
 .form-button {
   display: flex;
-  justify-self: end; /* przycisk po prawej w grid */
-  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .form-button button {
   background: none;
   border: 1.5px solid #5d83ff;
-  border-radius: 20px;
-  padding: 10px 20px;
+  border-radius: 24px;
+  padding: 12px 26px;
   color: #5d83ff;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  width: auto; /* mobile: zmienimy w media queries */
 }
 
-.form-button button:hover {
-  background: #5d83ff;
-  color: #fff;
-}
-
-/* RESPONSYWNE: na wąskich ekranach pola układają się pionowo */
-@media (max-width: 600px) {
-  .form-row {
-    grid-template-columns: 1fr; /* każde pole w nowym wierszu */
+/* Hover tylko dla urządzeń z myszką */
+@media (hover: hover) {
+  .form-button button:hover {
+    background: #5d83ff;
+    color: #fff;
   }
+}
+
+/* MOBILE: bardzo małe ekrany */
+@media (max-width: 400px) {
+  .visit-form {
+    padding: 16px;
+  }
+
   .form-button {
-    justify-self: start; /* przycisk pod polami */
-    margin-top: 8px;
+    justify-content: center; /* przycisk na środku */
+  }
+
+  .form-button button {
+    width: 100%; /* pełna szerokość na mobile */
+  }
+}
+
+/* TABLET: średnie ekrany */
+@media (min-width: 401px) and (max-width: 800px) {
+  .form-row {
+    gap: 12px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 0.95rem;
+  }
+
+  .form-button button {
+    width: auto;
+  }
+}
+
+/* DESKTOP: duże ekrany */
+@media (min-width: 801px) {
+  .form-row {
+    gap: 16px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 1rem;
+  }
+
+  .form-button button {
+    width: auto;
   }
 }
