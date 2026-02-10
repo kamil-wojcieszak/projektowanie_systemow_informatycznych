@@ -1,0 +1,218 @@
+.product-page {
+  /* max-width: 800px; */
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
+  color: #4a4a4a;
+}
+
+/* Nagłówek */
+.product-header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-header {
+    flex-direction: column;
+  }
+}
+
+.main-container {
+  display: flex;
+  gap: "24px";
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+}
+
+.product-main-image img {
+  width: 250px;
+  border-radius: 8px;
+}
+
+.summary-title {
+  color: #5d83ff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.summary-price {
+  color: #7494ff;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.summary-rating {
+  color: #5d83ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e0e7ff;
+  margin: 20px 0;
+}
+
+/* Dane produktu */
+.product-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-body {
+    flex-direction: column;
+  }
+}
+
+.section-title {
+  color: #5d83ff;
+  margin-bottom: 20px;
+}
+
+.info-pill {
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  padding: 8px 20px;
+  margin-bottom: 10px;
+  max-width: 300px;
+  font-size: 0.85rem;
+}
+
+.info-pill strong {
+  color: #5d83ff;
+}
+
+.description-pill {
+  border-radius: 25px;
+  line-height: 1.4;
+  color: #7494ff;
+}
+
+/* Przycisk koszyka */
+.add-to-cart-btn {
+  background: white;
+  border: 2px solid #a5f3fc;
+  color: #5d83ff;
+  padding: 15px 60px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background: #f0fdff;
+  transform: scale(1.02);
+}
+
+/* Opinie */
+.review-card {
+  background-color: #f2f2f2;
+  border-radius: 40px;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.review-author {
+  color: #00bcd4; /* Turkusowy */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.review-date {
+  color: #00bcd4;
+  font-size: 0.9rem;
+}
+
+.review-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.star-fill {
+  color: #00bcd4;
+  font-size: 1.2rem;
+}
+.star-empty {
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.rating-text {
+  color: #00bcd4;
+  font-size: 0.9rem;
+}
+
+.review-content {
+  color: #7494ff;
+  margin: 0;
+  width: 90%;
+}
+
+.rating-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 250px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.rating-label {
+  color: #7494ff;
+  font-size: 0.9rem;
+}
+
+/* Stylizacja pigułkowa zgodna z Twoim UI */
+.half-step-input {
+  background-color: #e0f7ff;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 10px 15px;
+  color: #5d83ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.half-step-input:focus {
+  border-color: #a5f3fc;
+}
+
+/* Usuwanie strzałek w niektórych przeglądarkach (opcjonalne) */
+.half-step-input::-webkit-inner-spin-button,
+.half-step-input::-webkit-outer-spin-button {
+  opacity: 1; /* Zostawiamy strzałki, żeby łatwo było klikać połówki */
+}
+
+.rating-value-display {
+  color: #5d83ff;
+  font-size: 0.85rem;
+}
+
+.blik-input {
+  text-align: left;
+  letter-spacing: 4px;
+}

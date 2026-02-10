@@ -1,0 +1,99 @@
+.visit-form {
+  background: #f8faff;
+  padding: 24px;
+  border-radius: 16px;
+  width: 400px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.visit-form h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5d83ff;
+  margin: 0 0 8px 0;
+}
+
+.visit-form label {
+  font-size: 0.85rem;
+  color: #5d83ff;
+  margin-bottom: 4px;
+}
+
+/* Grid dla Marka + Model */
+.form-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr 80px 1fr; /* etykieta i pole x2 */
+  gap: 8px;
+  align-items: center;
+}
+
+.visit-form input,
+.visit-form select {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #c3d0ff;
+  background: #eaf0ff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.visit-form input:focus,
+.visit-form select:focus {
+  border-color: #5d83ff;
+  box-shadow: 0 0 4px #5d83ff33;
+}
+
+.visit-form button {
+  background: none;
+  border: 1.5px solid #5d83ff;
+  border-radius: 20px;
+  padding: 10px;
+  color: #5d83ff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.visit-form button:hover {
+  background: #5d83ff;
+  color: #fff;
+}
+
+.categories {
+  width: 180px;
+  background: #f0f4ff;
+  padding: 16px;
+  border-radius: 16px;
+  font-family: sans-serif;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categories li {
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #5d83ff;
+}
+
+.categories li:hover {
+  background: #5d83ff33;
+}
+
+.categories li.active {
+  background: #5d83ff;
+  color: #fff;
+}

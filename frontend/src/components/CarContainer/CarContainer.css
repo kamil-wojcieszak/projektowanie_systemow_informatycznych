@@ -1,0 +1,10 @@
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* mniejsze minimum */
+  gap: 20px;
+  padding: 12px 0;
+  box-sizing: border-box; /* uwzględnia padding */
+  max-width: calc(100% - 250px); /* jeśli sidebar = 250px */
+  align-items: start; /* wyrównuje wszystkie karty w górę */
+}
+
