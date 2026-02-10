@@ -8,13 +8,17 @@
 
 == Aplikacja powinna poprawnie działać na urządzeniach mobilnych
 
+#image("images/03_responsive_1.jpg", width: 100%)
+
+#image("images/03_responsive_2.jpg", width: 100%)
+
 == System powinien obsługiwać dwie wersje językowe
 
 #image("images/polski.png", width: 100%)
 
 #image("images/angielski.png", width: 100%)
 
-Funkcja obsługi dwóch wersji językowych w aplikacji została zrealizowana z wykorzystaniem biblioteki *react-i18next*, która umożliwia dynamiczne tłumaczenie interfejsu użytkownika w aplikacjach React.
+Funkcja obsługi dwóch wersji językowych w aplikacji została zrealizowana (niestety nie zdążyliśmy dodać tłumaczenia na każdym ekranie/każdego wyrazu w aplikacji) z wykorzystaniem biblioteki *react-i18next*, która umożliwia dynamiczne tłumaczenie interfejsu użytkownika w aplikacjach React.
 
 W projekcie utworzono pliki słowników językowych w formacie JSON (dla języka polskiego i angielskiego), zawierające wszystkie statyczne teksty występujące w interfejsie, takie jak nazwy przycisków, nagłówki, etykiety formularzy oraz elementy nawigacji.
 

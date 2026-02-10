@@ -8,14 +8,23 @@ Poniżej zrzut ekranu pokazujący
 
 #image("images/obraz1.png", width: 100%)
 
-=== Użytkownik ma możliwość dodawania i usuwania produktów z koszyka w sklepie
-internetowym salonu
+Dane pobierane są z backendu. Nie implementowaliśmy filtrowania. Po wybraniu grupy produktów przechodzi się do ekranu szczegółów produktu. 
+Szczegóły konkretnej grupy produktów są pomyślnie pobierane z backendu, niestety napotkaliśmy na błędy przy przekazywaniu danych do elementów ekranu, przez co dane nie były wyświetlane poprawnie.
+
+#image("images/02_product_details.JPG", width: 100%)
+
+=== Użytkownik ma możliwość dodawania i usuwania produktów z koszyka w sklepie internetowym salonu
 
 #image("images/obraz2.png", width: 100%)
 
 #image("images/obraz3.png", width: 100%)
 
+Dane konkretnej grupy produktów są pomyślnie pobierane z backendu, mieliśmy jednak błędy przy przekazywaniu ich do elementów ekranu ze szczegółami produktu, 
+z którego można było dodać produkty do koszyka. Z tego względu nie można było zapisać danych grupy produktów do koszyka, co na ekranie koszyka spowodowało wyświetlenie nieprawidłowych wartości takich jak np. NaN.
+
 === Użytkownik ma możliwość wystawiania opinii produktom w sklepie internetowym salonu
+
+Nie zdążyliśmy zintegrować wystawienia opinii z backendem. Interfejs wystawiania opinii zawiera walidację/pozwala na wystawienie opinii z zakresu 0 - 5 ze skokiem wartości co 0.5.
 
 #image("images/obraz4.png", width: 100%)
 
@@ -24,6 +33,10 @@ internetowym salonu
 #image("images/obraz5.png", width: 100%)
 
 #image("images/obraz6.png", width: 100%)
+
+Nie zdążyliśmy zintegrować tej funkcji z backendem-> nie wysyłamy informacji o pomyślnym opłaceniu zamówienia i danych zamówienia 
+(domyślnie nie planowaliśmy implementować integracji z serwisem płatności w naszej implementacji projektu, dlatego zmockowaliśmy pomyślną transakcję). Interfejs wprowadzania danych dostawy zawiera walidację pól kodu pocztowego. 
+Interfejs wprowadzania kodu blik oraz numeru karty, daty ważności karty i numeru cvv zawierają walidację.
 
 == Salon samochodowy
 
