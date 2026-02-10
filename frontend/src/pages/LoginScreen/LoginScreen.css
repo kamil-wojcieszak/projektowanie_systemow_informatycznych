@@ -1,0 +1,88 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1c24; /* Ciemne tło z obrazka */
+  font-family: "Segoe UI", sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px;
+}
+
+.login-logo {
+  color: #8ccbff; /* Jasnobłękitny kolor logo */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-field-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-field-group label {
+  color: #5d83ff; /* Niebieski kolor labeli */
+  font-size: 1.1rem;
+  padding-left: 10px;
+}
+
+.login-input {
+  background-color: #e0f7ff; /* Bardzo jasny błękit wewnątrz */
+  border: none;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  color: #1a1c24;
+  outline: none;
+}
+
+.login-options,
+.register-option {
+  margin-top: 5px;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: #5d83ff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.login-submit-btn {
+  margin-top: 10px;
+  background: none;
+  border: 2px solid #5dccff; /* Jasny obrys */
+  border-radius: 30px;
+  padding: 12px;
+  color: #8ccbff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-submit-btn:hover {
+  background-color: rgba(93, 204, 255, 0.1);
+  box-shadow: 0 0 15px rgba(140, 203, 255, 0.3);
+}

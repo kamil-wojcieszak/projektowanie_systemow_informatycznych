@@ -49,6 +49,14 @@
 /* Styl pigułkowy dla select i input */
 .payment-select-wrapper,
 .blik-input {
+  /* width: 100%; */
+  background-color: #e0f7ff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  color: #5d83ff;
+  font-size: 1.1rem;
+  outline: none;
   width: 100%;
 }
 
@@ -57,7 +65,7 @@
   background-color: #e0f7ff;
   border: none;
   border-radius: 25px;
-  padding: 12px 20px;
+  /* padding: 12px 20px; */
   color: #5d83ff;
   font-size: 1.1rem;
   outline: none;

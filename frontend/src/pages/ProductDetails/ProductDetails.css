@@ -11,6 +11,25 @@
   gap: 30px;
   align-items: center;
   margin-bottom: 20px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-header {
+    flex-direction: column;
+  }
+}
+
+.main-container {
+  display: flex;
+  gap: "24px";
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
 }
 
 .product-main-image img {
@@ -49,6 +68,13 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 40px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-body {
+    flex-direction: column;
+  }
 }
 
 .section-title {
@@ -142,4 +168,51 @@
 .review-content {
   color: #7494ff;
   margin: 0;
+  width: 90%;
+}
+
+.rating-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 250px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.rating-label {
+  color: #7494ff;
+  font-size: 0.9rem;
+}
+
+/* Stylizacja pigułkowa zgodna z Twoim UI */
+.half-step-input {
+  background-color: #e0f7ff;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 10px 15px;
+  color: #5d83ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.half-step-input:focus {
+  border-color: #a5f3fc;
+}
+
+/* Usuwanie strzałek w niektórych przeglądarkach (opcjonalne) */
+.half-step-input::-webkit-inner-spin-button,
+.half-step-input::-webkit-outer-spin-button {
+  opacity: 1; /* Zostawiamy strzałki, żeby łatwo było klikać połówki */
+}
+
+.rating-value-display {
+  color: #5d83ff;
+  font-size: 0.85rem;
+}
+
+.blik-input {
+  text-align: left;
+  letter-spacing: 4px;
 }

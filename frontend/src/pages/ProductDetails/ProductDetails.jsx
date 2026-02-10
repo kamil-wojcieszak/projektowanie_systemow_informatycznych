@@ -3,11 +3,31 @@ import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";
 import Categories from "../../components/Categories/Categories";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState();
+
+  const [isAddingReview, setIsAddingReview] = useState(false);
+
+  const [myComment, setMyComment] = useState();
+
+  const [myRate, setMyRate] = useState(0);
+
+  const handleRateChange = (e) => {
+    const val = parseFloat(e.target.value);
+    // Dodatkowe zabezpieczenie w logice, gdyby ktoś wpisał ręcznie > 5
+    if (val > 5) setMyRate(5);
+    else if (val < 0) setMyRate(0);
+    else setMyRate(val);
+  };
+
+  const handleCommentChange = (e) => {
+    setMyComment(e.target.value);
+    console.log(myComment);
+  };
 
   const reviews = [
     {
@@ -92,14 +112,38 @@ const ProductDetails = () => {
         cartList.push(newItem);
       }
 
+      toast.success("Dodano do koszyka!", {
+        style: {
+          border: "2px solid #a5f3fc",
+          padding: "16px",
+          color: "#5d83ff",
+          borderRadius: "50px",
+          background: "#e0f7ff",
+        },
+        iconTheme: {
+          primary: "#5d83ff",
+          secondary: "#FFFAEE",
+        },
+      });
+
+      console.log(JSON.stringify(cartList));
+
       // 5. Zapisz całą zaktualizowaną listę pod jednym kluczem
       localStorage.setItem("shopping_cart", JSON.stringify(cartList));
     }
   };
 
+  const submitReview = () => {
+    //TODO: submit review
+  };
+
+  const addReview = () => {
+    setIsAddingReview(!isAddingReview);
+  };
+
   return (
     product && (
-      <div style={{ display: "flex", gap: "24px" }}>
+      <div className="main-container">
         <Categories selected={product.category_id} />
 
         <div style={{ flex: 1 }}>
@@ -157,6 +201,51 @@ const ProductDetails = () => {
             {/* Sekcja Dolna: Opinie */}
             <div className="reviews-section">
               <h2 className="section-title">Opinie</h2>
+              {isAddingReview == true ? (
+                <div className="review-card">
+                  <div className="review-rating-row">
+                    <div className="stars-row"></div>
+                    <span className="rating-text">
+                      <div className="rating-input-group">
+                        <label className="rating-label">
+                          Twoja ocena (0-5, co 0.5):
+                        </label>
+                        <input
+                          type="number"
+                          min="0"
+                          max="5"
+                          step="0.5"
+                          value={myRate}
+                          onChange={handleRateChange}
+                          className="half-step-input"
+                        />
+                        <div className="rating-value-display">
+                          Wybrano: <strong>{myRate.toFixed(1)}</strong>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                  <div className="review-content">
+                    <input
+                      type="text"
+                      placeholder="_______________"
+                      className="blik-input"
+                      onChange={handleCommentChange}
+                    />
+                  </div>
+                  <div className="action-column">
+                    <button className="add-to-cart-btn" onClick={addReview}>
+                      Zatwierdź
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="action-column">
+                  <button className="add-to-cart-btn" onClick={addReview}>
+                    Dodaj Opinię
+                  </button>
+                </div>
+              )}
               {reviews.map((rev) => (
                 <div key={rev.id} className="review-card">
                   <div className="review-header">
