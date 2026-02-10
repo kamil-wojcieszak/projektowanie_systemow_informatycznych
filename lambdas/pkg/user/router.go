@@ -1,6 +1,7 @@
 package user
 
 import (
+	"database/sql"
 	"net/http"
 	"psi/pkg/middleware"
 	"time"
@@ -16,8 +17,8 @@ type Router struct {
 }
 
 // NewRouter creates a new Router instance
-func NewRouter() *Router {
-	service := NewService(defaultJWTSecret)
+func NewRouter(db *sql.DB) *Router {
+	service := NewService(defaultJWTSecret, db)
 
 	return &Router{
 		service: service,
@@ -27,7 +28,6 @@ func NewRouter() *Router {
 // SetupRoutes configures all user routes
 func (r *Router) SetupRoutes(router *gin.Engine) {
 	router.Use(middleware.CORS())
-	// Routes without prefix (for API Gateway proxy+ integration)
 	router.GET("/users/health", r.healthCheck)
 	router.POST("/users/login", r.login)
 	router.GET("/users/list", r.getUsers)
@@ -86,7 +86,14 @@ func (r *Router) login(c *gin.Context) {
 
 // getUsers returns the list of users (without passwords)
 func (r *Router) getUsers(c *gin.Context) {
-	users := r.service.GetAll()
+	users, err := r.service.GetAll()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Failed to retrieve users",
+			"error":   err.Error(),
+		})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Users retrieved successfully",

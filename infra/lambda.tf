@@ -35,8 +35,23 @@ resource "aws_lambda_function" "users" {
   source_code_hash = data.archive_file.users.output_base64sha256
   runtime         = "provided.al2023"
   timeout         = 30
-  memory_size     = 128
+  memory_size     = 256
   architectures   = ["x86_64"]
+
+  vpc_config {
+    subnet_ids         = data.aws_subnets.default.ids
+    security_group_ids = [aws_security_group.lambda.id]
+  }
+
+  environment {
+    variables = {
+      DB_HOST     = aws_db_instance.products.address
+      DB_PORT     = "5432"
+      DB_USER     = var.db_username
+      DB_PASSWORD = var.db_password
+      DB_NAME     = "products"
+    }
+  }
 }
 
 resource "aws_lambda_function" "products" {

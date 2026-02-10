@@ -6,13 +6,13 @@ DISTRIBUTION_ID=E3LPHRKPUN0IJM
 ENVIRONMENT=DEV
 
 cd frontend
-# npm install
+npm install
 
-# npm run build -- --configuration=dev
+npm run build
 
 # cp -r dist/frontend/browser/* ../deployments/website
 
-aws s3 cp ./dist/frontend/browser/* s3://$S3_BUCKET
+aws s3 cp --recursive ./build s3://$S3_BUCKET
 
 aws cloudfront create-invalidation --no-cli-pager --distribution-id $DISTRIBUTION_ID --paths "/*"
 

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"psi/pkg/util"
+	"strings"
 
 	_ "github.com/lib/pq"
 )
@@ -20,7 +22,7 @@ const (
 
 func main() {
 	log.Println("Starting database initialization...")
-	
+
 	if len(os.Args) != 2 {
 		log.Fatal("Usage: go run init-db.go <path-to-sql-file>")
 	}
@@ -42,7 +44,7 @@ func main() {
 	log.Printf("Database port: %s", dbPort)
 	log.Printf("Database name: %s", dbName)
 	log.Printf("Database user: %s", dbUser)
-	
+
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=require",
 		dbHost, dbPort, dbUser, dbPassword, dbName)
 
@@ -63,11 +65,62 @@ func main() {
 
 	// Execute SQL
 	log.Println("Executing SQL statements...")
-	_, err = db.Exec(string(sqlContent))
-	if err != nil {
-		log.Fatalf("Failed to execute SQL: %v", err)
+	sqlText := strings.TrimSpace(string(sqlContent))
+	if strings.HasPrefix(strings.ToLower(sqlText), "select") {
+		rows, err := db.Query(sqlText)
+		if err != nil {
+			log.Fatalf("Failed to execute SQL query: %v", err)
+		}
+		defer rows.Close()
+
+		columns, err := rows.Columns()
+		if err != nil {
+			log.Fatalf("Failed to get columns: %v", err)
+		}
+
+		log.Printf("Columns: %s", strings.Join(columns, ", "))
+		values := make([]interface{}, len(columns))
+		valuePtrs := make([]interface{}, len(columns))
+		for i := range columns {
+			valuePtrs[i] = &values[i]
+		}
+
+		rowCount := 0
+		for rows.Next() {
+			if err := rows.Scan(valuePtrs...); err != nil {
+				log.Fatalf("Failed to scan row: %v", err)
+			}
+			rowCount++
+
+			rowParts := make([]string, len(columns))
+			for i, col := range columns {
+				var v string
+				switch val := values[i].(type) {
+				case nil:
+					v = "NULL"
+				case []byte:
+					v = string(val)
+				default:
+					v = fmt.Sprintf("%v", val)
+				}
+				rowParts[i] = fmt.Sprintf("%s=%s", col, v)
+			}
+			fmt.Printf("Row %d: %s", rowCount, strings.Join(rowParts, ", "))
+		}
+
+		if err := rows.Err(); err != nil {
+			log.Fatalf("Row iteration error: %v", err)
+		}
+		log.Printf("✓ Query executed successfully (rows: %d)", rowCount)
+	} else {
+		resp, err := db.Exec(sqlText)
+		if err != nil {
+			log.Fatalf("Failed to execute SQL: %v", err)
+		}
+
+		log.Println("✓ SQL executed successfully")
+		log.Printf("Database response %s", util.ToString(resp))
 	}
 
-	log.Println("✓ SQL executed successfully")
 	log.Println("Database initialization completed!")
 }

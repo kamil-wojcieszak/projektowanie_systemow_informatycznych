@@ -1,10 +1,13 @@
 package user
 
 import (
+	"database/sql"
 	"errors"
+	"fmt"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
+	"golang.org/x/crypto/bcrypt"
 )
 
 var (
@@ -15,7 +18,7 @@ var (
 // Service handles authentication logic
 type Service struct {
 	jwtSecret []byte
-	users     []User
+	db        *sql.DB
 }
 
 // Claims represents JWT claims
@@ -25,26 +28,36 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
-// NewService creates a new Service with hardcoded users
-func NewService(jwtSecret string) *Service {
+// NewService creates a new Service with database connection
+func NewService(jwtSecret string, db *sql.DB) *Service {
 	return &Service{
 		jwtSecret: []byte(jwtSecret),
-		users: []User{
-			{ID: 1, Username: "admin", Password: "admin123", Email: "admin@example.com"},
-			{ID: 2, Username: "user1", Password: "password1", Email: "user1@example.com"},
-			{ID: 3, Username: "user2", Password: "password2", Email: "user2@example.com"},
-		},
+		db:        db,
 	}
 }
 
 // Authenticate validates user credentials and returns the user if valid
 func (s *Service) Authenticate(username, password string) (*User, error) {
-	for i := range s.users {
-		if s.users[i].Username == username && s.users[i].Password == password {
-			return &s.users[i], nil
-		}
+	var user User
+	var passwordHash string
+	
+	query := "SELECT id, username, password_hash, email FROM users WHERE username = $1"
+	err := s.db.QueryRow(query, username).Scan(&user.ID, &user.Username, &passwordHash, &user.Email)
+	
+	if err == sql.ErrNoRows {
+		return nil, ErrInvalidCredentials
 	}
-	return nil, ErrInvalidCredentials
+	if err != nil {
+		return nil, fmt.Errorf("database error: %w", err)
+	}
+	
+	// Verify password using bcrypt
+	err = bcrypt.CompareHashAndPassword([]byte(passwordHash), []byte(password))
+	if err != nil {
+		return nil, ErrInvalidCredentials
+	}
+	
+	return &user, nil
 }
 
 // GenerateToken creates a JWT token for the given user
@@ -69,10 +82,26 @@ func (s *Service) GenerateToken(user *User) (string, error) {
 }
 
 // GetAll returns all users (without passwords)
-func (s *Service) GetAll() []UserResponse {
-	userResponses := make([]UserResponse, len(s.users))
-	for i, user := range s.users {
-		userResponses[i] = user.ToResponse()
+func (s *Service) GetAll() ([]UserResponse, error) {
+	query := "SELECT id, username, email FROM users ORDER BY id"
+	rows, err := s.db.Query(query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query users: %w", err)
 	}
-	return userResponses
+	defer rows.Close()
+	
+	var users []UserResponse
+	for rows.Next() {
+		var user UserResponse
+		if err := rows.Scan(&user.ID, &user.Username, &user.Email); err != nil {
+			return nil, fmt.Errorf("failed to scan user: %w", err)
+		}
+		users = append(users, user)
+	}
+	
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating users: %w", err)
+	}
+	
+	return users, nil
 }
