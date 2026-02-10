@@ -1,11 +1,13 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import "./ProductContainer.css";
+import { useTranslation } from "react-i18next";
 
 const ProductContainer = ({ product, onClick }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="widget-container" onClick={() => onClick(product.group_id)}>
-      {/* Kontener na grafikę z krzyżykiem */}
       <div className="widget-image-box">
         <div className="cross-line line-1"></div>
         <div className="cross-line line-2"></div>
@@ -26,17 +28,17 @@ const ProductContainer = ({ product, onClick }) => {
 
       <div className="widget-details">
         <p>
-          Marka: <span>{product.mark}</span>
+          {t("product.brand")}: <span>{product.mark}</span>
         </p>
         <p>
-          Opis: <span>{product.description}</span>
+          {t("product.description")}: <span>{product.description}</span>
         </p>
         <p>
-          Stan: <span>{product.product_condition}</span>
+          {t("product.condition")}: <span>{product.product_condition}</span>
         </p>
       </div>
 
-      <button className="widget-link">Pokaż więcej...</button>
+      <button className="widget-link">{t("product.showMore")}</button>
     </div>
   );
 };

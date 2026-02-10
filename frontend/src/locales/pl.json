@@ -1,0 +1,77 @@
+{
+  "services": [
+    { "name": "Wymiana oleju", "price": "150 zł" },
+    { "name": "Przegląd techniczny", "price": "200 zł" },
+    { "name": "Wymiana opon", "price": "100 zł" },
+    { "name": "Diagnostyka komputerowa", "price": "120 zł" }
+  ],
+  "price": "Cena",
+
+  "serviceNavigation": {
+    "offer": "Oferta serwisu",
+    "visitForm": "Formularz wizyty"
+  }, 
+
+  "serviceForm": {
+    "title": "Formularz umawiania wizyty w serwisie",
+    "date": "Termin",
+    "service": "Usługa",
+    "name": "Imię i nazwisko",
+    "phone": "Telefon",
+    "submit": "Umów wizytę",
+    "success": "Wizyta w serwisie umówiona!",
+
+    "services": {
+      "oilChange": "Wymiana oleju",
+      "inspection": "Przegląd techniczny",
+      "tireChange": "Wymiana opon",
+      "diagnostics": "Diagnostyka komputerowa"
+    }
+  },
+
+  "header": {
+    "search": "Szukaj...",
+    "start": "Start",
+    "salon": "Salon",
+    "shop": "Sklep",
+    "service": "Serwis",
+    "cart": "Koszyk"
+  },
+
+  "salonNavigation": {
+    "cars": "Samochody",
+    "visitForm": "Formularz wizyty"
+  },
+
+  "salonVisitForm": {
+    "title": "Formularz umówienia wizyty w salonie",
+    "date": "Termin wizyty",
+    "brand": "Marka",
+    "model": "Model",
+    "visitType": "Rodzaj wizyty",
+    "submit": "Umów",
+    "success": "Wizyta umówiona!",
+
+    "visitTypes": {
+      "testDrive": "Jazda testowa",
+      "consultation": "Konsultacja",
+      "purchase": "Zakup"
+    }
+  },
+
+  "car": {
+  "bookVisit": "Umów wizytę"
+  },
+
+  "filters": {
+    "title": "Filtry",
+    "price": "Cena"
+  },
+
+  "product": {
+    "brand": "Marka",
+    "description": "Opis",
+    "condition": "Stan",
+    "showMore": "Pokaż więcej..."
+  }
+}
