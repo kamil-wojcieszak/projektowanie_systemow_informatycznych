@@ -3,6 +3,7 @@ import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";
 import Categories from "../../components/Categories/Categories";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -110,6 +111,20 @@ const ProductDetails = () => {
         };
         cartList.push(newItem);
       }
+
+      toast.success("Dodano do koszyka!", {
+        style: {
+          border: "2px solid #a5f3fc",
+          padding: "16px",
+          color: "#5d83ff",
+          borderRadius: "50px",
+          background: "#e0f7ff",
+        },
+        iconTheme: {
+          primary: "#5d83ff",
+          secondary: "#FFFAEE",
+        },
+      });
 
       console.log(JSON.stringify(cartList));
 
