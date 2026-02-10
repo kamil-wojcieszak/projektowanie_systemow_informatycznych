@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Categories from "../components/Categories/Categories";
-import Filters from "../components/Filters/Filters";
-import ProductContainer from "../components/ProductContainer/ProductContainer";
-import ProductDetails from "./ProductDetails/ProductDetails";
+import Categories from "../../components/Categories/Categories";
+import Filters from "../../components/Filters/Filters";
+import ProductContainer from "../../components/ProductContainer/ProductContainer";
+import ProductDetails from "../ProductDetails/ProductDetails";
 import { useNavigate } from "react-router-dom";
+import "./Shop.css";
 
 export default function Shop() {
   const [products, setProducts] = useState();
@@ -99,15 +100,17 @@ export default function Shop() {
     navigate(`/sklep/szczegoly-produktu/${id}`);
   };
   return (
-    <div style={{ display: "flex", gap: "24px" }}>
+    <div className="main-container">
       <Categories />
 
       <div style={{ flex: 1 }}>
         <Filters />
-        {products != null &&
-          products.map((p) => (
-            <ProductContainer onClick={onClick} product={p} />
-          ))}
+        <div className="products-main-container">
+          {products != null &&
+            products.map((p) => (
+              <ProductContainer onClick={onClick} product={p} />
+            ))}
+        </div>
       </div>
     </div>
   );

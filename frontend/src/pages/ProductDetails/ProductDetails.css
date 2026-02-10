@@ -11,6 +11,25 @@
   gap: 30px;
   align-items: center;
   margin-bottom: 20px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-header {
+    flex-direction: column;
+  }
+}
+
+.main-container {
+  display: flex;
+  gap: "24px";
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
 }
 
 .product-main-image img {
@@ -49,6 +68,13 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 40px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .product-body {
+    flex-direction: column;
+  }
 }
 
 .section-title {
@@ -142,6 +168,7 @@
 .review-content {
   color: #7494ff;
   margin: 0;
+  width: 90%;
 }
 
 .rating-input-group {

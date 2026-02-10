@@ -133,17 +133,17 @@ const ProductDetails = () => {
     }
   };
 
-  const addReview = () => {
+  const submitReview = () => {
     //TODO: submit review
   };
 
-  const submitReview = () => {
+  const addReview = () => {
     setIsAddingReview(!isAddingReview);
   };
 
   return (
     product && (
-      <div style={{ display: "flex", gap: "24px" }}>
+      <div className="main-container">
         <Categories selected={product.category_id} />
 
         <div style={{ flex: 1 }}>
@@ -225,14 +225,14 @@ const ProductDetails = () => {
                       </div>
                     </span>
                   </div>
-                  <p className="review-content">
+                  <div className="review-content">
                     <input
                       type="text"
-                      placeholder="____________________"
+                      placeholder="_______________"
                       className="blik-input"
                       onChange={handleCommentChange}
                     />
-                  </p>
+                  </div>
                   <div className="action-column">
                     <button className="add-to-cart-btn" onClick={addReview}>
                       Zatwierdź

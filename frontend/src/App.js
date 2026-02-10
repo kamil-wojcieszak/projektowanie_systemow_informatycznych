@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Shop from "./pages/Shop";
+import Shop from "./pages/Shop/Shop";
 import Start from "./pages/Start";
 import Service from "./pages/Service";
 import { Routes, Route, Link } from "react-router-dom";
