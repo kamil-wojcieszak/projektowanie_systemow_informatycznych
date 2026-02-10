@@ -3,6 +3,7 @@ package product
 import (
 	"database/sql"
 	"net/http"
+	"psi/pkg/middleware"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +17,7 @@ type Router struct {
 // NewRouter creates a new Router instance
 func NewRouter(db *sql.DB) *Router {
 	service := NewService(db)
-	
+
 	return &Router{
 		service: service,
 	}
@@ -24,10 +25,11 @@ func NewRouter(db *sql.DB) *Router {
 
 // SetupRoutes configures all product routes
 func (r *Router) SetupRoutes(router *gin.Engine) {
+	router.Use(middleware.CORS())
 	router.GET("/products/health", r.healthCheck)
 	router.GET("/products/list", r.getProducts)
 	router.GET("/products/:id", r.getProduct)
-	
+
 }
 
 // healthCheck returns the health status of the service

@@ -2,6 +2,7 @@ package user
 
 import (
 	"net/http"
+	"psi/pkg/middleware"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -25,6 +26,7 @@ func NewRouter() *Router {
 
 // SetupRoutes configures all user routes
 func (r *Router) SetupRoutes(router *gin.Engine) {
+	router.Use(middleware.CORS())
 	// Routes without prefix (for API Gateway proxy+ integration)
 	router.GET("/users/health", r.healthCheck)
 	router.POST("/users/login", r.login)

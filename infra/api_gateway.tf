@@ -14,29 +14,6 @@ resource "aws_api_gateway_rest_api" "main" {
   }
 }
 
-# CORS Configuration
-resource "aws_api_gateway_gateway_response" "cors" {
-  rest_api_id   = aws_api_gateway_rest_api.main.id
-  response_type = "DEFAULT_4XX"
-
-  response_parameters = {
-    "gatewayresponse.header.Access-Control-Allow-Origin"  = "'*'"
-    "gatewayresponse.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
-    "gatewayresponse.header.Access-Control-Allow-Methods" = "'GET,POST,PUT,DELETE,OPTIONS'"
-  }
-}
-
-resource "aws_api_gateway_gateway_response" "cors_5xx" {
-  rest_api_id   = aws_api_gateway_rest_api.main.id
-  response_type = "DEFAULT_5XX"
-
-  response_parameters = {
-    "gatewayresponse.header.Access-Control-Allow-Origin"  = "'*'"
-    "gatewayresponse.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
-    "gatewayresponse.header.Access-Control-Allow-Methods" = "'GET,POST,PUT,DELETE,OPTIONS'"
-  }
-}
-
 # Users Resource and Methods
 resource "aws_api_gateway_resource" "users" {
   rest_api_id = aws_api_gateway_rest_api.main.id
