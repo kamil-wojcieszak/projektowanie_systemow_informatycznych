@@ -1,32 +1,49 @@
 import React, { useState } from "react";
 import "./SerwisForm.css";
+import { useTranslation } from "react-i18next";
 
 const SerwisForm = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     date: "2025-12-15",
     time: "09:00",
-    service: "Wymiana oleju",
+    service: "oilChange",
     customerName: "",
     phone: "",
   });
 
+  const services = [
+    "oilChange",
+    "inspection",
+    "tireChange",
+    "diagnostics"
+  ];
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // datetime-local zwraca jedną wartość — rozbijamy ją
+    if (name === "date") {
+      const [date, time] = value.split("T");
+      setFormData({ ...formData, date, time });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted", formData);
-    alert("Wizyta w serwisie umówiona!");
+    alert(t("serviceForm.success"));
   };
 
   return (
     <form className="visit-form" onSubmit={handleSubmit}>
-      <h2>Formularz umawiania wizyty w serwisie</h2>
+      <h2>{t("serviceForm.title")}</h2>
 
       <div className="form-grid">
-        <label htmlFor="date">Termin:</label>
+        <label htmlFor="date">{t("serviceForm.date")}:</label>
         <input
           type="datetime-local"
           id="date"
@@ -35,20 +52,21 @@ const SerwisForm = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="service">Usługa:</label>
+        <label htmlFor="service">{t("serviceForm.service")}:</label>
         <select
           id="service"
           name="service"
           value={formData.service}
           onChange={handleChange}
         >
-          <option>Wymiana oleju</option>
-          <option>Przegląd techniczny</option>
-          <option>Wymiana opon</option>
-          <option>Diagnostyka komputerowa</option>
+          {services.map((key) => (
+            <option key={key} value={key}>
+              {t(`serviceForm.services.${key}`)}
+            </option>
+          ))}
         </select>
 
-        <label htmlFor="customerName">Imię i nazwisko:</label>
+        <label htmlFor="customerName">{t("serviceForm.name")}:</label>
         <input
           type="text"
           id="customerName"
@@ -57,7 +75,7 @@ const SerwisForm = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="phone">Telefon:</label>
+        <label htmlFor="phone">{t("serviceForm.phone")}:</label>
         <input
           type="tel"
           id="phone"
@@ -67,7 +85,7 @@ const SerwisForm = () => {
         />
       </div>
 
-      <button type="submit">Umów wizytę</button>
+      <button type="submit">{t("serviceForm.submit")}</button>
     </form>
   );
 };

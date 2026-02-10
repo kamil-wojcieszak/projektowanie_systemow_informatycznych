@@ -1,6 +1,9 @@
 import "./SalonNavigation.css";
+import { useTranslation } from "react-i18next";
 
 export default function SalonNavigation({ activeTab, setActiveTab }) {
+  const { t } = useTranslation();
+
   return (
     <aside className="categories">
       <ul>
@@ -8,13 +11,13 @@ export default function SalonNavigation({ activeTab, setActiveTab }) {
           className={activeTab === "cars" ? "active" : ""}
           onClick={() => setActiveTab("cars")}
         >
-          Samochody
+          {t("salonNavigation.cars")}
         </li>
         <li
           className={activeTab === "visit" ? "active" : ""}
           onClick={() => setActiveTab("visit")}
         >
-          Formularz wizyty
+          {t("salonNavigation.visitForm")}
         </li>
       </ul>
     </aside>

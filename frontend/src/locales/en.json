@@ -1,0 +1,77 @@
+{
+  "services": [
+    { "name": "Oil Change", "price": "$35" },
+    { "name": "Technical Inspection", "price": "$50" },
+    { "name": "Tire Replacement", "price": "$25" },
+    { "name": "Computer Diagnostics", "price": "$30" }
+  ],
+  "price": "Price",
+
+  "serviceNavigation": {
+    "offer": "Service Offer",
+    "visitForm": "Visit Form"
+  },
+
+  "serviceForm": {
+    "title": "Service Appointment Form",
+    "date": "Date",
+    "service": "Service",
+    "name": "Full name",
+    "phone": "Phone",
+    "submit": "Book appointment",
+    "success": "Service appointment booked!",
+
+    "services": {
+      "oilChange": "Oil Change",
+      "inspection": "Technical Inspection",
+      "tireChange": "Tire Replacement",
+      "diagnostics": "Computer Diagnostics"
+    }
+  },
+
+  "header": {
+    "search": "Search...",
+    "start": "Home",
+    "salon": "Showroom",
+    "shop": "Shop",
+    "service": "Service",
+    "cart": "Cart"
+  },
+
+  "salonNavigation": {
+    "cars": "Cars",
+    "visitForm": "Visit Form"
+  },
+
+   "salonVisitForm": {
+    "title": "Showroom Visit Form",
+    "date": "Visit date",
+    "brand": "Brand",
+    "model": "Model",
+    "visitType": "Visit type",
+    "submit": "Book",
+    "success": "Visit booked!",
+
+    "visitTypes": {
+      "testDrive": "Test drive",
+      "consultation": "Consultation",
+      "purchase": "Purchase"
+    }
+  },
+
+  "car": {
+  "bookVisit": "Book a visit"
+  },
+
+  "filters": {
+    "title": "Filters",
+    "price": "Price"
+  },
+
+  "product": {
+    "brand": "Brand",
+    "description": "Description",
+    "condition": "Condition",
+    "showMore": "Show more..."
+  }
+}

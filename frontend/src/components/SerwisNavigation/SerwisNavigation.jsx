@@ -1,6 +1,9 @@
 import "./SerwisNavigation.css";
+import { useTranslation } from "react-i18next";
 
 export default function SerwisNavigation({ activeTab, setActiveTab }) {
+  const { t } = useTranslation();
+
   return (
     <aside className="categories">
       <ul>
@@ -8,13 +11,13 @@ export default function SerwisNavigation({ activeTab, setActiveTab }) {
           className={activeTab === "cars" ? "active" : ""}
           onClick={() => setActiveTab("cars")}
         >
-          Oferta serwisu
+          {t("serviceNavigation.offer")}
         </li>
         <li
           className={activeTab === "visit" ? "active" : ""}
           onClick={() => setActiveTab("visit")}
         >
-          Formularz wizyty
+          {t("serviceNavigation.visitForm")}
         </li>
       </ul>
     </aside>

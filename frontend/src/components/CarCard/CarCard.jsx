@@ -1,11 +1,12 @@
-// CarCard.jsx
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./CarCard.css";
 
 const CarCard = ({ car, onClick, onBookVisit }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="car-card" onClick={onClick}>
-      {/* Placeholder grafiki z krzyżykiem */}
       <div className="car-image-box">
         <div className="cross-line line-1"></div>
         <div className="cross-line line-2"></div>
@@ -26,7 +27,7 @@ const CarCard = ({ car, onClick, onBookVisit }) => {
           onBookVisit(car);
         }}
       >
-        Umów wizytę
+        {t("car.bookVisit")}
       </button>
     </div>
   );

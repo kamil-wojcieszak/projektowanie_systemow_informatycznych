@@ -1,12 +1,15 @@
 import "./Filters.css";
+import { useTranslation } from "react-i18next";
 
 export default function Filters() {
+  const { t } = useTranslation();
+
   return (
     <section className="filters">
-      <h3>Filtry</h3>
+      <h3>{t("filters.title")}</h3>
 
       <div className="filter-chip">
-        Cena: 5.00 – 2 000.00 zł
+        {t("filters.price")}: 5.00 – 2 000.00 zł
         <span className="remove">×</span>
       </div>
 
