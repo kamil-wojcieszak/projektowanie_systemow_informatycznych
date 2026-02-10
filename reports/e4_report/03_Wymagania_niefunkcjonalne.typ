@@ -6,6 +6,12 @@
 
 == System powinien zapewniać bezpieczne przesyłanie informacji
 
+Https na frontendzie:
+#image("images/03_https_frontend.png", width: 100%)
+
+Https na backendzie:
+#image("images/03_https_backend.png", width: 100%)
+
 == Aplikacja powinna poprawnie działać na urządzeniach mobilnych
 
 #image("images/03_responsive_1.jpg", width: 100%)
